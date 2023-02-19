@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+const API_URL= process.env.REACT_APP_API_URL || 'http://localhost:5005';
 
 
 const Create = () => {
@@ -40,7 +41,7 @@ const Create = () => {
     const handleSubmit = (e) => {
       e.preventDefault();
       axios
-        .post("http://localhost:5005/strolls", stroll)
+        .post(`${API_URL}/strolls`, stroll)
         .then(() => navigate("/profile"))
         .catch((err) => {
           console.error(err);

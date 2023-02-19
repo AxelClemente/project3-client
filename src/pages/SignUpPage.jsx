@@ -1,6 +1,8 @@
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+const API_URL= process.env.REACT_APP_API_URL || 'http://localhost:5005';
+
 
 const SignUpPage = () => {
   const [user, setUser] = useState({
@@ -26,7 +28,7 @@ const SignUpPage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:5005/auth/signup", user)
+      .post(`${API_URL}/auth/signup`, user)
       .then(() => navigate("/login"))
       .catch((err) => {
         console.error(err);

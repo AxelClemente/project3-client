@@ -3,6 +3,8 @@ import '../pages/style.css'
 import { useState, useEffect}  from "react";
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+const API_URL= process.env.REACT_APP_API_URL || 'http://localhost:5005';
+
 
 const StrollDetails = () => {
     const [strolls, setStrolls] = useState({});
@@ -21,7 +23,7 @@ const StrollDetails = () => {
 
 
     useEffect(() => {
-        axios.get(`http://localhost:5005/strolls/${id}`)
+        axios.get(`${API_URL}/strolls/${id}`)
             .then((response) => {
                 console.log('respuesta del API :', response.data)
                 setStrolls(response.data)

@@ -6,6 +6,8 @@ import { RiUserHeartLine, RiTimerLine, RiWalkFill,RiStarLine, RiStarSFill} from 
 // import { useParams } from 'react-router-dom';
 import { AuthContext } from '../../context/auth.context';
 
+const API_URL= process.env.REACT_APP_API_URL || 'http://localhost:5005';
+
 
 
 const StrollList = () => {
@@ -20,7 +22,7 @@ const StrollList = () => {
     const [rating, setRating] = useState(0);
 
     useEffect(() => {
-        axios.get('http://localhost:5005/strolls')
+        axios.get(`${API_URL}/strolls`)
             .then((response) => {
                 // console.log('response.data', response.data)
                 setStrolls(response.data)
@@ -32,7 +34,7 @@ const StrollList = () => {
     },[]);
 
     const handleFavoritesClick = (strollId) => {
-        axios.post(`http://localhost:5005/api/${user._id}`, {
+        axios.post(`${API_URL}/api/${user._id}`, {
           strollId: strollId
         })
         .then((response) => {
@@ -119,7 +121,7 @@ const StrollList = () => {
         console.log("strollId:", strollId);
         console.log("rating:", rating);
         axios
-          .post(`http://localhost:5005/rating/${strollId}`, {
+          .post(`${API_URL}/rating/${strollId}`, {
             rating,
             user: user._id,
             stroll: strollId,

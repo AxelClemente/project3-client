@@ -5,6 +5,10 @@ import { useState, useContext } from 'react';
 import placeholderProfileImage from '../images/profile.png'
 import axios from 'axios';
 
+const API_URL= process.env.REACT_APP_API_URL || 'http://localhost:5005';
+
+
+
 
 
 
@@ -23,7 +27,7 @@ const User = () => {
  
     // service
     //   .uploadImage(uploadData)
-      axios.post("http://localhost:5005/api/upload", uploadData)
+      axios.post(`${API_URL}/api/upload`, uploadData)
       .then(response => {
         // console.log("response is: ", response);
         // response carries "fileUrl" which we can use to update the state
@@ -35,7 +39,7 @@ const User = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const storedToken = localStorage.getItem("authToken");
-    axios.put("http://localhost:5005/api/users", 
+    axios.put(`${API_URL}/api/users`, 
                                 {profilePicture: imageUrl},
                                 {headers: { Authorization: `Bearer ${storedToken}` }} )
           .then(response => {

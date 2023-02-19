@@ -2,6 +2,7 @@ import { useState, useContext } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
+const API_URL= process.env.REACT_APP_API_URL || 'http://localhost:5005';
 
 const LoginPage = () => {
   const [user, setUser] = useState({
@@ -27,7 +28,7 @@ const LoginPage = () => {
     e.preventDefault();
     console.log(user);
     axios
-      .post("http://localhost:5005/auth/login", user)
+      .post(`${API_URL}/auth/login`, user)
       .then((response) => {
         console.log("token", response.data.authToken);
         storeToken(response.data.authToken);
