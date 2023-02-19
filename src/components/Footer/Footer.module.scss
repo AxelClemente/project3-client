@@ -1,0 +1,84 @@
+@import '../../styles/contants.scss';
+
+.wrapper{
+
+    
+    .container{
+        gap: 2rem;
+        display: flex;
+        justify-content: center;
+        
+
+        @media (max-width: $sm){
+            flex-direction: column;
+            gap: 2rem;
+            align-items: flex-start;
+        }
+        .left{
+            flex: 1;
+
+
+            >*{
+                display: block;
+                font-weight: 500;
+                font-size: 1.2rem;
+            }
+
+            .icon{
+                color: rgb(238,192,73);          
+            }
+
+
+            >:nth-child(2)
+            {
+                margin-top: 2rem;
+
+                a{
+                    text-decoration: none;
+                    line-height: 40px;
+                    color: #645888;
+                    &:hover{
+                        color: $secondary;
+                    }
+                }
+
+
+            }
+        }
+
+        .right{
+            flex: 1;
+
+            .info{
+                margin-bottom: 1rem;
+
+                >*{
+                    display: block;
+                }
+            }
+
+            .menu{
+
+                @media (max-width: $sm){
+                    font-display: row;
+                    flex-wrap: wrap;
+                }
+                display: flex;
+                flex-direction: column;
+                list-style: none;
+                gap: 2rem;
+                
+                .test{
+                    margin-top: -15px;
+                }
+                
+
+
+            }
+        }
+
+    }   
+
+
+
+}

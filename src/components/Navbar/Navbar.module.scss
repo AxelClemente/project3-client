@@ -1,0 +1,10 @@
+@import '../../styles/contants.scss';
+
+.name{
+    font-size: 1.5rem;
+    font-weight: 700;
+    background: linear-gradient(to right, rgb(99,70,154), rgb(6, 163, 163));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    cursor: pointer;
+}

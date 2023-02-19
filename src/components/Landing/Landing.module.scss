@@ -1,0 +1,66 @@
+@import '../../styles/contants.scss';
+
+.wrapper{
+    overflow: hidden;
+
+    .container{
+        position: relative;
+        z-index: 1;
+
+        .upperElement{
+            @media (max-width: $sm){
+                justify-content: center;
+                text-align: center;
+                gap: 2rem;
+            }
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .lowerElements{
+             @media (max-width: $sm), (max-width: $md){
+                margin-top: 4rem;
+                gap: 2rem;
+                justify-content: center;
+            }
+            margin-top: 12rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+
+            .experience{
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+
+                >:nth-child(2){
+                    line-height: 25px;
+                }
+            }
+        }
+
+        .person{
+            @media (max-width: $sm), (max-width: $md){
+                position: relative;
+                left: 0;
+                background-size: 17rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-position: bottom;
+            }
+            position: absolute;
+            bottom: -0.08rem;
+            margin: auto;
+            background-image: url('../../../public/images/world1.png');
+            background-repeat: no-repeat;
+            background-size: 22rem;
+            background-position: 90%;
+            left: 38%;
+            
+
+        }
+    }
+}

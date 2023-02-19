@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  font-family: "Eudoxus Sans", sans-serif;
+  
+} */
+
+@layer utilities {
+  .bg-customPrimary {
+    background-color: #ed7771;
+  }
+  .bg-customSecondary {
+    background-color: #f6dd83;
+  }
+  .bg-customthird {
+    background-color: #f4f4f3;
+  }
+  .bg-customPurple {
+    background-color: #645888 ;
+  }
+  .bg-customBlue {
+    background-color: #2584c5 ;
+  }
+}
+
+@layer base {
+  body {
+    @apply font-primary bg-gray-200;
+  }
+  .dropdown {
+    @apply w-full lg:max-w-[296px] cursor-pointer;
+  }
+  .dropdown-btn {
+    @apply flex h-[64px] items-center px-[18px] border rounded-lg;
+  }
+  .dropdown-icon-primary {
+    @apply text-2xl mr-[18px] text-violet-700;
+  }
+  .dropdown-icon-secondary {
+    @apply text-2xl text-violet-700 ml-auto;
+  }
+  .dropdown-icon-custom {
+    @apply text-2xl mr-[18px] text-custom;
+  }
+  .dropdown-icon-customFour {
+    @apply text-2xl mr-[2px] text-customfour;
+  }
+  .dropdown-icon-customYellow {
+    @apply text-2xl mr-[2px] text-customSecondary;
+  }
+  .dropdown-icon-customPurple {
+    @apply text-2xl mr-[2px] text-customThird;
+  }
+  .dropdown-menu {
+    @apply px-6 py-8 text-[15px] space-y-6 shadow-md bg-white absolute w-full z-10 list-none rounded-b-lg;
+  }
+}

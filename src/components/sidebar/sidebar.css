@@ -1,0 +1,52 @@
+.sidebar{
+    flex: 1;
+    height: calc(100vh - 50px); /* De no restar los 50px se hara un OVERFLOWING */
+    background-color: rgb(248,247,241);
+    position: sticky;
+    top: 50px;
+    /* -webkit-box-shadow: 0px 0px 15px 0px rgba(255,255,255,0.07); 
+    box-shadow: 0px 0px 15px 0px rgba(2, 1, 1, 0.07);
+    border-radius: 5px; */
+}
+
+.sidebarWrapper{
+    padding: 20px;
+    color: #555;
+
+}
+
+.sidebarMenu{
+    margin-bottom: 10px;
+}
+
+.sidebarTitle{
+    font-size: 13px;
+    color: rgb(37,132,197);
+}
+
+.sidebarList{
+    list-style: none;
+    padding: 5px;
+}
+
+.sidebarListItem{
+    cursor: pointer;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.sidebarListItem.active.sidebarListItem:hover { 
+    background-color: rgb(221, 218, 218);
+}
+
+.sidebarIcon{
+    margin-right: 5px;
+    font-size: 20px !important; /* Para cambiar el tamaño de los material/icons se debe colocar !important */
+}
+
+.link{
+    text-decoration: none;
+    color: inherit;
+}
