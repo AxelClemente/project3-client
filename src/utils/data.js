@@ -1,12 +1,11 @@
 
-import { CiCloudOn, CiBrightnessUp, CiCloudSun } from "react-icons/ci";
+import { CiCloudOn, CiBrightnessUp} from "react-icons/ci";
 
 export const plans = [
 
   {
     name: "Free Plan",
     projects: "+ 1.000 travel routes", 
-    projects: "+ 1.000 travel routes",
     icon: CiCloudOn,
     bg: "#645888",
   },

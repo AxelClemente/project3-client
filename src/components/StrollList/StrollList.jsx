@@ -2,8 +2,8 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { useState, useEffect, useContext }  from "react";
 import axios from 'axios';
-import { RiUserHeartLine, RiTimerLine, RiWalkFill, RiHeartFill, RiStarLine, RiStarSFill} from 'react-icons/ri';
-import { useParams } from 'react-router-dom';
+import { RiUserHeartLine, RiTimerLine, RiWalkFill,RiStarLine, RiStarSFill} from 'react-icons/ri';
+// import { useParams } from 'react-router-dom';
 import { AuthContext } from '../../context/auth.context';
 
 
@@ -50,6 +50,7 @@ const StrollList = () => {
               }
             });
           });
+          console.log(isStrollAdded)
           setIsStrollAdded(true);
         })
         .catch((error) => {

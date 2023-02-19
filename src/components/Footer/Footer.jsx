@@ -3,7 +3,7 @@ import css from './Footer.module.scss';
 import { motion } from 'framer-motion';
 import { staggerChildren } from '../../utils/motion';
 import { footerVariants } from '../../utils/motion';
-import { BsGithub } from "react-icons/bs";
+
 
 
 

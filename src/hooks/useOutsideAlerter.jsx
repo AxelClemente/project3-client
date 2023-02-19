@@ -1,24 +1,31 @@
-import { useEffect, useState } from "react";
+import { useEffect, useCallback } from "react";
 
-export default function useOutsideAlerter({menuRef, setMenuOpened}) {
-  const viewport_width = document.documentElement.clientWidth;
+export default function useOutsideAlerter({ menuRef, setMenuOpened }) {
+  const viewportWidth = document.documentElement.clientWidth;
+
+  const handleMenuOpen = useCallback(() => {
+    setMenuOpened(false);
+  }, [setMenuOpened]);
+
   useEffect(() => {
     /**
      * Alert if clicked on outside of element
      */
     function handleClickOutside(event) {
       if (menuRef.current && !menuRef.current.contains(event.target)) {
-        if (viewport_width <= 640) {
-            setMenuOpened(false);
+        if (viewportWidth <= 640) {
+          handleMenuOpen();
         }
       }
     }
+
     // Bind the event listener
     document.addEventListener("mousedown", handleClickOutside);
+
     return () => {
       // Unbind the event listener on clean up
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [menuRef]);
-
+  }, [menuRef, viewportWidth, handleMenuOpen]);
 }
+

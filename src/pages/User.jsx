@@ -1,5 +1,4 @@
 import React from 'react'
-import Header from '../components/Header/Header'
 import { Link } from 'react-router-dom'
 import { AuthContext } from '../context/auth.context';
 import { useState, useContext } from 'react';
@@ -11,7 +10,7 @@ import axios from 'axios';
 
 const User = () => {
   const [imageUrl, setImageUrl] = useState("");
-  const { isLoggedIn, user, logOutUser, setUser } = useContext(AuthContext);
+  const { isLoggedIn, user, setUser } = useContext(AuthContext);
 
   const handleFileUpload = (e) => {
     // console.log("The file to be uploaded is: ", e.target.files[0]);

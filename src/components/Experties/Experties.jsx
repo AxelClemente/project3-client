@@ -1,7 +1,7 @@
 import React from 'react'
 import css from './Experties.module.scss'
 import { plans } from '../../utils/data'
-import { AboutTheApp } from '../../utils/data'
+// import { AboutTheApp } from '../../utils/data'
 import { motion } from 'framer-motion'
 import { staggerContainer } from '../../utils/motion'
 import { fadeIn } from '../../utils/motion'
