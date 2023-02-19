@@ -4,6 +4,7 @@ import Landing from "./components/Landing/Landing";
 import Header from "./components/Header/Header";
 // import Navbar from "./components/Navbar/Navbar";
 import css from './styles/app.module.scss'
+/* eslint-disable no-unused-vars */
 
 
 
@@ -19,6 +20,7 @@ import Create from "./pages/Create";
 import Dashboard from "./pages/Dashboard/Dashboard";
  
 function App() {
+  /* eslint-disable no-unused-vars */
   const location = useLocation();
 
   return (
