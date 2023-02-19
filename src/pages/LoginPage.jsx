@@ -32,7 +32,7 @@ const LoginPage = () => {
         console.log("token", response.data.authToken);
         storeToken(response.data.authToken);
         authenticateUser();
-        navigate("/stroll");
+        navigate("/strolls");
       })
       .catch((err) => {
         console.error(err);

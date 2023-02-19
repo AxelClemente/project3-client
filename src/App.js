@@ -30,7 +30,7 @@ function App() {
       <Header/>
       <Routes>
         <Route path="/" element={<Landing />} />
-        <Route path="/stroll" element={<Home/>} />
+        <Route path="/strolls" element={<Home/>} />
         <Route path="/strolls/:id" element={<StrollDetails />} />
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/signup" element={<SignUpPage />} />

@@ -32,7 +32,7 @@ const Header = () => {
       style={{ boxShadow: headerShadow }}
     >
       <div className={`flexCenter mb-4 innerWidth ${css.container}`}>
-        <Link to="/stroll">
+        <Link to="/strolls">
           <img src="images/Stroll2.png" alt="logo" width="100" height="100"/>
         </Link>
       
@@ -42,7 +42,7 @@ const Header = () => {
           className={`flexCenter ${css.menu}`}
         >
           {pathname === '/' && (
-            <a href="/stroll">
+            <a href="/strolls">
               <span className='text-customPrimary'>Enter App</span>
             </a>
           )}
