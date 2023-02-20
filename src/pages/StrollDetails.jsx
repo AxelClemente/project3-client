@@ -1,14 +1,21 @@
 import React from 'react'
 import '../pages/style.css'
-import { useState, useEffect}  from "react";
+import { useState, useEffect, useContext }  from "react";
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import {RiStarLine, RiStarSFill} from 'react-icons/ri';
+
+import { AuthContext } from '../context/auth.context';
 const API_URL= process.env.REACT_APP_API_URL || 'http://localhost:5005';
 
 
 const StrollDetails = () => {
     const [strolls, setStrolls] = useState({});
     const {id} = useParams();
+    const [hoveredStarIndex, setHoveredStarIndex] = useState(null);
+    const { user } = useContext(AuthContext);
+
+    const [rating, setRating] = useState(0);
 
     const [activeModal, setActiveModal] = useState(null);
     function openModal(modalClick) {
@@ -39,6 +46,99 @@ const StrollDetails = () => {
         return <p>Loading...</p>
     }
 
+    const renderStars = (rating, strollId) => {
+        const stars = [];
+      
+        for (let i = 0; i < 5; i++) {
+          if (i < rating) {
+            stars.push(
+              <RiStarSFill
+                key={i}
+                size={20}
+                onMouseEnter={() => setHoveredStarIndex(i)}
+                onMouseLeave={() => setHoveredStarIndex(null)}
+                onClick={() => {
+                  setRating(i + 1);
+                  handleStrollRating(strollId, i + 1);
+                }}
+                color="currentColor"
+              />
+            );
+          } else {
+            stars.push(
+              <RiStarLine
+                key={i}
+                size={20}
+                onMouseEnter={() => setHoveredStarIndex(i)}
+                onMouseLeave={() => setHoveredStarIndex(null)}
+                onClick={() => {
+                  setRating(i + 1);
+                  handleStrollRating(strollId, i + 1);
+                }}
+                color="currentColor"
+              />
+            );
+          }
+        }
+      
+        if (hoveredStarIndex !== null) {
+          for (let i = 0; i <= hoveredStarIndex; i++) {
+            stars[i] = (
+              <RiStarSFill
+                key={i}
+                size={20}
+                onMouseEnter={() => setHoveredStarIndex(i)}
+                onMouseLeave={() => setHoveredStarIndex(null)}
+                onClick={() => {
+                  setRating(i + 1);
+                  handleStrollRating(strollId, i + 1);
+                }}
+                color="currentColor"
+              />
+            );
+          }
+        }
+      
+        return stars;
+      };
+      
+      
+      const handleStrollRating = (strollId, rating) => {
+        axios
+          .post(`${API_URL}/rating/${strollId}`, {
+            rating: rating,
+            user: user._id,
+            stroll: strollId,
+          })
+          .then((response) => {
+            console.log(strollId)
+            console.log(rating)
+            console.log(user._id)
+            const newRating = response.data;
+            // Update the stroll with the new rating in the strolls state
+            setStrolls((prevStrolls) => {
+              if (Array.isArray(prevStrolls)) {
+                return prevStrolls.map((prevStroll) => {
+                  if (prevStroll._id === strollId) {
+                    return {
+                      ...prevStroll,
+                      rating: newRating.rating,
+                      numRatings: newRating.numRatings,
+                    };
+                  } else {
+                    return prevStroll;
+                  }
+                });
+              } else {
+                return prevStrolls;
+              }
+            });
+          })
+          .catch((error) => {
+            console.error(error);
+          });
+      };
+      
     
 
   return (
@@ -48,14 +148,19 @@ const StrollDetails = () => {
             <section class="qualification section">
                 <h2 class="section__title">{strolls.title.charAt(0).toUpperCase() + strolls.title.slice(1)}</h2>
                 <span class="section__subtitle">Lets Start🚀</span>
+                <div className='flex text-customThird cursor-pointer mb-10 ml-8' style={{ justifyContent: 'center', alignItems: 'center' }}>
+                    {renderStars(rating, strolls._id)}
+                    <p  className='ml-2 text-custom' style={{ fontWeight: 'bold' }}>4.98</p>
+                </div>
+
                 <div class="qualification__container container">
-                    <div class="qualification__tabs">
+                    {/* <div class="qualification__tabs">
                         <div class="qualification__button button--flex qualification__active">
                         <i class="uil uil-location-point"style={{color: 'rgb(237,119,113)'}}></i> 
                         <img src={strolls.img1} alt="" /><i class="uil uil-heart-sign"></i>
                         
                         </div>
-                    </div>
+                    </div> */}
                     <div class="qualification__sections">
                         
                         <div class="qualification__content qualification__active" data-content id="education">

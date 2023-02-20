@@ -42,7 +42,7 @@ const ProfilePage = () => {
       .then((response) => {
         console.log(" put response data", response.data);
         setUser(response.data);
-        setImageUrl("");
+        setImageUrl(response.data.profilePicture);
       })
       .catch((err) => console.log(err));
   };
