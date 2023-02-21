@@ -26,6 +26,7 @@ const ProfilePage = () => {
         // console.log("response is: ", response);
         // response carries "fileUrl" which we can use to update the state
         setImageUrl(response.data.fileUrl);
+        console.log(response.data);
       })
       .catch((err) => console.log("Error while uploading the file: ", err));
   };
