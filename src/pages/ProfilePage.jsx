@@ -3,7 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
 import placeholderProfilePicture from "../images/avatar.png";
-const API_URL= process.env.REACT_APP_API_URL || 'http://localhost:5005';
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5005";
 
 const ProfilePage = () => {
   const [imageUrl, setImageUrl] = useState("");
@@ -21,7 +21,7 @@ const ProfilePage = () => {
     // service
     //   .uploadImage(uploadData)
     axios
-      .post(`${API_URL}/api/upload`, uploadData)
+      .post("http://localhost:5005/api/upload", uploadData)
       .then((response) => {
         // console.log("response is: ", response);
         // response carries "fileUrl" which we can use to update the state
@@ -35,14 +35,14 @@ const ProfilePage = () => {
     const storedToken = localStorage.getItem("authToken");
     axios
       .put(
-        `${API_URL}/api/users`,
+        "http://localhost:5005/api/users",
         { profilePicture: imageUrl },
         { headers: { Authorization: `Bearer ${storedToken}` } }
       )
       .then((response) => {
         console.log(" put response data", response.data);
         setUser(response.data);
-        setImageUrl(response.data.profilePicture);
+        setImageUrl("");
       })
       .catch((err) => console.log(err));
   };
