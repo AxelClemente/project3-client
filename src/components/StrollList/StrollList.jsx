@@ -84,7 +84,7 @@ const StrollList = () => {
             getAverageRating(stroll._id);
           }
         });
-      }, [strolls, averageRatings]);
+      }, [strolls]); //, averageRatings We need to add this to the dependency array to avoid a loop response from the server. But when added an error occur on the Netlify deployment
 
       
       return (
