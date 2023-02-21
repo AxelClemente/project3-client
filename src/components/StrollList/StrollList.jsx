@@ -17,7 +17,7 @@ const StrollList = () => {
 
     const [isStrollAdded, setIsStrollAdded] = useState(false);
 
-    const [hoveredStarIndex, setHoveredStarIndex] = useState(null);
+    // const [hoveredStarIndex, setHoveredStarIndex] = useState(null);
 
     const [averageRatings, setAverageRatings] = useState({});
 
@@ -33,7 +33,7 @@ const StrollList = () => {
                 console.error(error);
             });
         
-    },[]);
+    },[strolls]);
 
     
 
