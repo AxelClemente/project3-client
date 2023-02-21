@@ -21,7 +21,7 @@ const ProfilePage = () => {
     // service
     //   .uploadImage(uploadData)
     axios
-      .post("http://localhost:5005/api/upload", uploadData)
+      .post(`${API_URL}/api/upload`, uploadData)
       .then((response) => {
         // console.log("response is: ", response);
         // response carries "fileUrl" which we can use to update the state
