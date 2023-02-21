@@ -1,10 +1,14 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from '../context/auth.context';
+
 const API_URL= process.env.REACT_APP_API_URL || 'http://localhost:5005';
 
 
 const Create = () => {
+  const { user } = useContext(AuthContext);
+
     const [stroll, setStroll] = useState({
         title: "",
         city: "",
@@ -40,8 +44,10 @@ const Create = () => {
   
     const handleSubmit = (e) => {
       e.preventDefault();
-      axios
-        .post(`${API_URL}/strolls`, stroll)
+      const userId = user._id;
+      console.log(userId); // add this line to check the value of userId
+      
+      axios.post(`${API_URL}/strolls`, { ...stroll, user: user._id })       
         .then(() => navigate("/profile"))
         .catch((err) => {
           console.error(err);
