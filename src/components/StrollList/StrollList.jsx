@@ -33,7 +33,7 @@ const StrollList = () => {
                 console.error(error);
             });
         
-    },[strolls]);
+    },[]);
 
     
 
@@ -84,7 +84,7 @@ const StrollList = () => {
             getAverageRating(stroll._id);
           }
         });
-      }, [strolls]);
+      }, [strolls,getAverageRating]);
 
       
       return (
