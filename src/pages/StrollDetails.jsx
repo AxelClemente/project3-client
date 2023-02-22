@@ -14,7 +14,7 @@ const StrollDetails = () => {
     const {id} = useParams();
     const [hoveredStarIndex, setHoveredStarIndex] = useState(null);
     const { user } = useContext(AuthContext);
-
+    const [rated, setRated] = useState(false); // display message "Thanks for sharing your rating"
     const [rating, setRating] = useState(0);
 
     const [activeModal, setActiveModal] = useState(null);
@@ -60,6 +60,7 @@ const StrollDetails = () => {
                 onClick={() => {
                   setRating(i + 1);
                   handleStrollRating(strollId, i + 1);
+                  setRated(true);
                 }}
                 color="currentColor"
               />
@@ -74,6 +75,7 @@ const StrollDetails = () => {
                 onClick={() => {
                   setRating(i + 1);
                   handleStrollRating(strollId, i + 1);
+                  setRated(true);
                 }}
                 color="currentColor"
               />
@@ -92,6 +94,7 @@ const StrollDetails = () => {
                 onClick={() => {
                   setRating(i + 1);
                   handleStrollRating(strollId, i + 1);
+                  setRated(true);
                 }}
                 color="currentColor"
               />
@@ -113,7 +116,7 @@ const StrollDetails = () => {
           .then((response) => {
             console.log(strollId)
             console.log(rating)
-            console.log(user._id)
+            console.log(rating)
             const newRating = response.data;
             // Update the stroll with the new rating in the strolls state
             setStrolls((prevStrolls) => {
@@ -150,7 +153,10 @@ const StrollDetails = () => {
                 <span class="section__subtitle">Lets Start🚀</span>
                 <div className='flex text-customThird cursor-pointer mb-10 ml-8' style={{ justifyContent: 'center', alignItems: 'center' }}>
                     {renderStars(rating, strolls._id)}
-                    <p  className='ml-2 text-custom' style={{ fontWeight: 'bold' }}>4.98</p>
+                    { rated && 
+                        <p className='ml-2 text-customGreen'>
+                            Thanks for sharing your rating!
+                        </p>}
                 </div>
 
                 <div class="qualification__container container">

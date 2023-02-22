@@ -8,21 +8,21 @@ export default function Sidebar() {
     <div className='sidebar'>
       <div className="sidebarWrapper">
         <div className="sidebarMenu">
-            <h3 className='sidebarTitle'>Dashboard</h3>          
+            <h3 className='sidebarTitle'>Strolls</h3>          
                 <ul className="sidebarList">
                     <Link to="/" className='link'>
                         <li className="sidebarListItem active">
                             {/* <LineStyle className='sidebarIcon'/> */}
-                            Home
+                            Create
                         </li>
                     </Link>
                     <li className="sidebarListItem active">
                         {/* <Timeline className='sidebarIcon'/> */}
-                        Analytics
+                        My list
                     </li>
                     <li className="sidebarListItem active">
                         {/* <TrendingUp className='sidebarIcon'/> */}
-                        Sales
+                        Favorites
                     </li>
                 </ul>          
         </div>
@@ -32,59 +32,45 @@ export default function Sidebar() {
                     <Link to="/users" className="link">
                         <li className="sidebarListItem active">
                             {/* <PersonOutlined className='sidebarIcon'/> */}
-                            Users
+                            Home
                         </li>
                     </Link>
 
                     <Link to="/products" className="link">
                         <li className="sidebarListItem active">
                             {/* <Storefront className='sidebarIcon'/> */}
-                            Products
+                            List Page
                         </li>
                     </Link>
 
-                    <li className="sidebarListItem active">
-                        {/* <Euro className='sidebarIcon'/> */}
-                        Sales
-                    </li>
-                    <li className="sidebarListItem active">
-                        {/* <BarChart className='sidebarIcon'/> */}
-                        Reports
-                    </li>
                 </ul>          
         </div>
         <div className="sidebarMenu">
-            <h3 className='sidebarTitle'>Notifications</h3>          
+            <h3 className='sidebarTitle'>Account</h3>          
                 <ul className="sidebarList">
                     <li className="sidebarListItem active">
                         {/* <MailOutline className='sidebarIcon'/> */}
-                        Home
+                        Profile image
                     </li>
                     <li className="sidebarListItem active">
                         {/* <DynamicFeed className='sidebarIcon'/> */}
-                        Feedback
+                        logout
                     </li>
-                    <li className="sidebarListItem active">
-                        {/* <ChatBubbleOutline className='sidebarIcon'/> */}
-                        Messages
-                    </li>
+
                 </ul>          
         </div>
         <div className="sidebarMenu">
-            <h3 className='sidebarTitle'>Staff</h3>          
+            <h3 className='sidebarTitle'>Help</h3>          
                 <ul className="sidebarList">
                     <li className="sidebarListItem active">
                         {/* <WorkOutline className='sidebarIcon'/> */}
-                        Manage
+                        FAQS
                     </li>
                     <li className="sidebarListItem active">
                         {/* <Timeline className='sidebarIcon'/> */}
-                        Analytics
+                        Contact
                     </li>
-                    <li className="sidebarListItem active">
-                        {/* <InfoOutlined className='sidebarIcon'/> */}
-                        Info
-                    </li>
+
                 </ul>          
         </div>
       </div>

@@ -35,9 +35,9 @@ function App() {
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/signup" element={<SignUpPage />} />
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/users" element={<User />} />
+        <Route path="/users" element={<Dashboard />} />
         <Route path="/users/:id/create" element={<Create />} />
-        <Route path="/dashboard" element={<Dashboard />} />
+        
         
       </Routes>
     </div>

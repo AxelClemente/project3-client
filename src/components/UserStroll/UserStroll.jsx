@@ -1,88 +1,32 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { useState, useEffect, useContext } from "react";
-import axios from "axios";
+import React, { useState, useContext, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { AuthContext } from '../../context/auth.context';
+import axios from 'axios';
 import {
   RiUserHeartLine,
   RiTimerLine,
   RiWalkFill,
   RiStarSFill,
 } from "react-icons/ri";
-// import { useParams } from 'react-router-dom';
-import { AuthContext } from "../../context/auth.context";
 
-const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5005";
+const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5005';
 
-const StrollList = () => {
-
+const UserStroll = () => {
   const [strolls, setStrolls] = useState([]);
-  const { user } = useContext(AuthContext);
-  const [isStrollAdded, setIsStrollAdded] = useState(false);
-  const [averageRatings, setAverageRatings] = useState({});
-
-  console.log("the user is:",user)
-  useEffect(() => {
-    axios
-      .get(`${API_URL}/strolls`)
-      .then((response) => {
-        // console.log('response.data', response.data)
-        setStrolls(response.data);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  }, []);
-
-  const handleFavoritesClick = (strollId) => {
-    axios
-      .post(`${API_URL}/api/${user._id}`, {
-        strollId: strollId,
-      })
-      .then((response) => {
-        const updatedUser = response.data;
-        setStrolls((prevStrolls) => {
-          return prevStrolls.map((stroll) => {
-            if (stroll._id === strollId) {
-              return {
-                ...stroll,
-                list: updatedUser.list,
-                isStrollAdded: true, // set isStrollAdded to true for updated stroll
-              };
-            } else {
-              return stroll;
-            }
-          });
-        });
-        console.log(isStrollAdded);
-        setIsStrollAdded(true);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  };
-
-  const getAverageRating = (strollId) => {
-    axios
-      .get(`${API_URL}/rating/strolls/${strollId}/rating`)
-      .then((response) => {
-        const { averageRating } = response.data;
-        setAverageRatings((prevState) => ({
-          ...prevState,
-          [strollId]: averageRating,
-        }));
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  };
+  const { isLoggedIn, user, setUser } = useContext(AuthContext);
 
   useEffect(() => {
-    strolls.forEach((stroll) => {
-      if (!averageRatings[stroll._id]) {
-        getAverageRating(stroll._id);
-      }
-    });
-  }, [strolls]);
+    if (isLoggedIn) {
+      const storedToken = localStorage.getItem('authToken');
+      axios.get(`${API_URL}/api/users/${user._id}`, {
+        headers: { Authorization: `Bearer ${storedToken}` },
+      })
+      .then(response => {
+        setStrolls(response.data.list);
+      })
+      .catch(err => console.log(err));
+    }
+  }, [isLoggedIn, user]);
 
   return (
     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -113,9 +57,6 @@ const StrollList = () => {
                   <div>
                     <RiStarSFill />
                   </div>
-                  <p style={{ fontWeight: "bold" }}>
-                    {averageRatings[stroll._id] || 0}
-                  </p>
                 </div>
               </div>
               <div className="flex gap-x-6">
@@ -150,7 +91,7 @@ const StrollList = () => {
                 className={`uil uil-heart-sign cursor-pointer ${
                   stroll.isStrollAdded ? "text-customGreen" : ""
                 }`}
-                onClick={() => handleFavoritesClick(stroll._id)}
+                
               ></i>
             </div>
           </div>
@@ -160,4 +101,5 @@ const StrollList = () => {
   );
 };
 
-export default StrollList;
+export default UserStroll;
+

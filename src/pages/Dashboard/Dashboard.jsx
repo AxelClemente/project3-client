@@ -1,6 +1,7 @@
 import React from 'react'
 import FeaturedInfo from '../../components/featuredInfo/FeaturedInfo'
 import Sidebar from '../../components/sidebar/Sidebar'
+import UserStroll from '../../components/UserStroll/UserStroll'
 import "../Dashboard/dashboard.css"
 
 const Dashboard = () => {
@@ -10,6 +11,15 @@ const Dashboard = () => {
             <Sidebar/>
             <div className='others'>
                 <FeaturedInfo/>
+                <div>
+                  <h1 className="featuredTitle" style={{ textAlign: 'center', marginTop: '20px', marginBottom: '20px', webkitBoxShadow: '0px 0px 15px 0px rgba(255,255,255,0.07)',
+                    boxShadow: '0px 0px 15px 0px rgba(2, 1, 1, 0.07)',
+                    backgroundColor: 'rgba(255, 255, 255, 0.8)',
+                    borderRadius: '5px' }} > Favorites <i
+                    className= 'uil uil-heart-sign cursor-pointer'    
+                  ></i></h1>
+                </div>
+                <UserStroll/>
             </div>
             
         </div>
