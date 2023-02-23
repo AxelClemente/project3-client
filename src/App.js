@@ -1,6 +1,6 @@
 //Spinner
 import Spinner from "./components/Spinner/Spinner";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import "./App.scss";
 import { Routes, Route, useLocation } from "react-router-dom";
