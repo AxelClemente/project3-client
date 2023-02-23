@@ -8,6 +8,7 @@ import css from "./styles/app.module.scss";
 
 //Spinner
 import Spinner from "./components/Spinner/Spinner";
+import { useState } from "react";
 
 //Pages
 import Home from "./pages/Home";
