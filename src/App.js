@@ -24,25 +24,30 @@ import Dashboard from "./pages/Dashboard/Dashboard";
 function App() {
   /* eslint-disable no-unused-vars */
   const location = useLocation();
+  const [isLoading, setIsLoading] = useState(true);
 
-  return (
-    <div className={`bg-primary ${css.container}`}>
-      {/* { location.pathname === "/" && <Header/>} */}
-      {/* { location.pathname !== "/" && <Navbar/>} */}
-      <Header />
-      <Routes>
-        <Route path="/" element={<Landing />} />
-        <Route path="/strolls" element={<Home />} />
-        <Route path="/strolls/:id" element={<StrollDetails />} />
-        <Route path="/profile" element={<ProfilePage />} />
-        <Route path="/signup" element={<SignUpPage />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/users" element={<User />} />
-        <Route path="/users/:id/create" element={<Create />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-      </Routes>
-    </div>
-  );
+  if (isLoading) {
+    return <Spinner />;
+  } else {
+    return (
+      <div className={`bg-primary ${css.container}`}>
+        {/* { location.pathname === "/" && <Header/>} */}
+        {/* { location.pathname !== "/" && <Navbar/>} */}
+        <Header />
+        <Routes>
+          <Route path="/" element={<Landing />} />
+          <Route path="/strolls" element={<Home />} />
+          <Route path="/strolls/:id" element={<StrollDetails />} />
+          <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/signup" element={<SignUpPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/users" element={<User />} />
+          <Route path="/users/:id/create" element={<Create />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+        </Routes>
+      </div>
+    );
+  }
 }
 
 export default App;
