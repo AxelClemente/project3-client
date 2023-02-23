@@ -1,7 +1,7 @@
 // src/components/Spinner.js
 
 const spinner =
-  "https://tenor.com/en-GB/view/rainbow-spinner-loading-gif-20872339";
+  "https://education-team-2020.s3.eu-west-1.amazonaws.com/web-dev/m3/react-lists/spinner.gif";
 
 function Spinner() {
   return (

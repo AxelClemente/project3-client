@@ -1,3 +1,7 @@
+//Spinner
+import Spinner from "./components/Spinner/Spinner";
+import { useState } from "react";
+
 import "./App.scss";
 import { Routes, Route, useLocation } from "react-router-dom";
 import Landing from "./components/Landing/Landing";
@@ -5,10 +9,6 @@ import Header from "./components/Header/Header";
 // import Navbar from "./components/Navbar/Navbar";
 import css from "./styles/app.module.scss";
 /* eslint-disable no-unused-vars */
-
-//Spinner
-import Spinner from "./components/Spinner/Spinner";
-import { useState } from "react";
 
 //Pages
 import Home from "./pages/Home";
@@ -24,7 +24,7 @@ import Dashboard from "./pages/Dashboard/Dashboard";
 function App() {
   /* eslint-disable no-unused-vars */
   const location = useLocation();
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
   if (isLoading) {
     return <Spinner />;
