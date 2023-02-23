@@ -7,6 +7,8 @@ import {
   RiTimerLine,
   RiWalkFill,
   RiStarSFill,
+  RiDeleteBinLine,
+  RiDeleteBin7Line
 } from "react-icons/ri";
 
 const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5005';
@@ -15,6 +17,19 @@ const UserStroll = () => {
   const [strolls, setStrolls] = useState([]);
   const { isLoggedIn, user, setUser } = useContext(AuthContext);
 
+
+  const removeStrollFavorites = (strollId) => {
+    const storedToken = localStorage.getItem('authToken');
+    axios.delete(`${API_URL}/api/users/${user._id}/${strollId}`, {
+      headers: { Authorization: `Bearer ${storedToken}` },
+    })
+    .then(response => {
+      setStrolls(response.data.list);
+    })
+    .catch(err => console.log(err));
+  }
+
+  //Fetch the favorites strolls of the loggedIn user - return the list property of the User model.
   useEffect(() => {
     if (isLoggedIn) {
       const storedToken = localStorage.getItem('authToken');
@@ -26,7 +41,7 @@ const UserStroll = () => {
       })
       .catch(err => console.log(err));
     }
-  }, [isLoggedIn, user]);
+  }, [isLoggedIn, user, setUser]);
 
   return (
     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -87,12 +102,7 @@ const UserStroll = () => {
             </div>
             <div className="flex" style={{ justifyContent: "space-between" }}>
               <div>{stroll.budget}€ avg.</div>
-              <i
-                className={`uil uil-heart-sign cursor-pointer ${
-                  stroll.isStrollAdded ? "text-customGreen" : ""
-                }`}
-                
-              ></i>
+              <span className='cursor-pointer' onClick={() => removeStrollFavorites(stroll._id)}><RiDeleteBin7Line/></span>
             </div>
           </div>
         );

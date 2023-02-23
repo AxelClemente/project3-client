@@ -54,10 +54,10 @@ const Header = () => {
 
           {isLoggedIn && (
             <>
-              {/* <Link to={"/"}>
+              <Link to={"/"}>
                 {" "}
                 <button>Home</button>{" "}
-              </Link> */}
+              </Link>
 
               <Link to={"/users"}>
                 {" "}
