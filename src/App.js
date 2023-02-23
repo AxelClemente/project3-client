@@ -25,6 +25,12 @@ function App() {
   /* eslint-disable no-unused-vars */
   const location = useLocation();
   const [isLoading, setIsLoading] = useState(false);
+  useEffect(() => {
+    setIsLoading(true);
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 3000);
+  }, []);
 
   if (isLoading) {
     return <Spinner />;
