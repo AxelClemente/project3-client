@@ -10,6 +10,7 @@ const Create = () => {
   const { user, setUser } = useContext(AuthContext);
 
     const [stroll, setStroll] = useState({
+      
         title: "",
         city: "",
         description: "",
@@ -42,30 +43,54 @@ const Create = () => {
       setStroll({ ...stroll, [name]: value });
     };
   
-    const handleSubmit = (e) => {
-      e.preventDefault();
-      const userId = user._id;
-      console.log(userId); // add this line to check the value of userId
+    // const handleSubmit = (e) => {
+    //   e.preventDefault();
+    //   const userId = user._id;
+    //   // console.log(userId); // add this line to check the value of userId
       
-      axios.post(`${API_URL}/strolls`, { ...stroll, userId: user._id })
-        .then((response) => {
-          // Update the user context with the new `strollId`
-          setUser({
-            ...user,
-            stroll: [...user.stroll, response.data._id]
-          });
-          // Navigate to the user profile page
-          navigate("/profile");
-        })
-        .catch((err) => {
-          console.error(err);
-          const errorDescription = err.response.data.message;
-          setErrorMessage(errorDescription);
-        });
-    };
+    //   axios.post(`${API_URL}/strolls`, { ...stroll, userId: user._id })
+    //     .then((response) => {
+    //       console.log("cual es esta respuesta????",response)
+    //       // Update the user context with the new `strollId`
+    //       setUser({
+    //         ...user,
+    //         stroll: [...user.stroll, response.data._id]
+    //       });
+    //       // Navigate to the user profile page
+    //       navigate("/profile");
+    //     })
+    //     .catch((err) => {
+    //       console.error(err);
+    //       const errorDescription = err.response.data.message;
+    //       setErrorMessage(errorDescription);
+    //     });
+    // };
 
 
+//Test to add both propertys at the same time
+const handleSubmit = (e) => {
+  e.preventDefault();
+  const userId = user._id;
+  
+  // Add userId to the stroll object
+  const updatedStroll = { ...stroll, userId: user._id };
 
+  axios.post(`${API_URL}/strolls`, updatedStroll)
+    .then((response) => {
+      // Update the user context with the new `strollId`
+      setUser({
+        ...user,
+        stroll: [...user.stroll, response.data._id]
+      });
+      // Navigate to the user profile page
+      navigate("/profile");
+    })
+    .catch((err) => {
+      console.error(err);
+      const errorDescription = err.response.data.message;
+      setErrorMessage(errorDescription);
+    });
+};
     
   
     return (

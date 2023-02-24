@@ -7,88 +7,52 @@ import {
   RiTimerLine,
   RiWalkFill,
   RiStarSFill,
+  RiDeleteBin7Line
 } from "react-icons/ri";
-// import { useParams } from 'react-router-dom';
 import { AuthContext } from "../../context/auth.context";
 
 const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5005";
 
-const StrollList = () => {
-
+const StrollCreated = () => {
   const [strolls, setStrolls] = useState([]);
   const { user } = useContext(AuthContext);
-  const [isStrollAdded, setIsStrollAdded] = useState(false);
-  const [averageRatings, setAverageRatings] = useState({});
-
-  // console.log("the user is:",user)
-  useEffect(() => {
-    axios
-      .get(`${API_URL}/strolls`)
-      .then((response) => {
-        // console.log('response.data', response.data)
-        setStrolls(response.data);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  }, []);
-
-  const handleFavoritesClick = (strollId) => {
-    axios
-      .post(`${API_URL}/api/${user._id}`, {
-        strollId: strollId,
-      })
-      .then((response) => {
-        const updatedUser = response.data;
-        setStrolls((prevStrolls) => {
-          return prevStrolls.map((stroll) => {
-            if (stroll._id === strollId) {
-              return {
-                ...stroll,
-                list: updatedUser.list,
-                isStrollAdded: true, // set isStrollAdded to true for updated stroll
-              };
-            } else {
-              return stroll;
-            }
-          });
-        });
-        console.log(isStrollAdded);
-        setIsStrollAdded(true);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  };
-
-  const getAverageRating = (strollId) => {
-    axios
-      .get(`${API_URL}/rating/strolls/${strollId}/rating`)
-      .then((response) => {
-        const { averageRating } = response.data;
-        setAverageRatings((prevState) => ({
-          ...prevState,
-          [strollId]: averageRating,
-        }));
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  };
 
   useEffect(() => {
-    strolls.forEach((stroll) => {
-      if (!averageRatings[stroll._id]) {
-        getAverageRating(stroll._id);
+    const fetchStrolls = async () => {
+      console.log("Fetching strolls...");
+      if (!user) {
+        console.log("No user found");
+        return;
       }
-    });
-  }, [strolls]);
+      console.log("User found", user._id);
+      try {
+        const response = await axios.get(`${API_URL}/strolls/user/${user._id}`);
+        setStrolls(response.data.strolls);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+  
+    fetchStrolls();
+  }, [user]);
+
+  console.log("Strolls:", strolls);
+
+  const handleDeleteStroll = async (strollId) => {
+    try {
+      const response = await axios.delete(`${API_URL}/strolls/${strollId}`);
+      if (response.status === 200) {
+        setStrolls(strolls.filter(stroll => stroll._id !== strollId));
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
 
   return (
     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
       {strolls.map((stroll) => {
-        
-        
         return (
           <div
             key={stroll._id}
@@ -97,7 +61,6 @@ const StrollList = () => {
             <Link to={`/strolls/${stroll._id}`}>
               <img className="mb-8" src={stroll.img1} alt="img" />
             </Link>
-
             <div className="mb-4">
               <div
                 className="text-sm mb-8 flex"
@@ -113,9 +76,6 @@ const StrollList = () => {
                   <div>
                     <RiStarSFill />
                   </div>
-                  <p style={{ fontWeight: "bold" }}>
-                    {averageRatings[stroll._id] || 0}
-                  </p>
                 </div>
               </div>
               <div className="flex gap-x-6">
@@ -146,19 +106,19 @@ const StrollList = () => {
             </div>
             <div className="flex" style={{ justifyContent: "space-between" }}>
               <div>{stroll.budget}€ avg.</div>
-              <i
-                className={`uil uil-heart-sign cursor-pointer ${
-                  stroll.isStrollAdded ? "text-customGreen" : ""
-                }`}
-                onClick={() => handleFavoritesClick(stroll._id)}
-              ></i>
-              
+              <span
+                className="cursor-pointer"
+                onClick={() => handleDeleteStroll(stroll._id)}
+              >
+                <RiDeleteBin7Line />
+              </span>
             </div>
           </div>
         );
       })}
     </div>
   );
+
 };
 
-export default StrollList;
+export default StrollCreated;

@@ -1,5 +1,6 @@
 // import { ArrowDownwardOutlined, ArrowUpwardOutlined } from "@material-ui/icons"
 import User from "../../pages/User"
+import StrollCreated from "../StrollCreated/StrollCreated"
 import UserStroll from "../UserStroll/UserStroll"
 import "./featuredInfo.css"
 
@@ -13,18 +14,14 @@ export default function FeaturedInfo() {
             {/* <span className="featuredSub">Compare to last month</span> */}
         </div>
 
+
+
         <div className="featuredItem">
-            <span className="featuredTitle">Sales</span>
             <div className="featuredMoneyContainer">
-                <span className="featuredMoney">$5,21</span>
-                <span className="featuredMoneyRate">
-                    {/* -14.4 <ArrowDownwardOutlined className="featuredIcon negative"/> */}
-                </span>
+                {/* <StrollCreated/> */}
             </div>
-            <span className="featuredSub">Compare to last month</span>
+            {/* <span className="featuredSub">Compare to last month</span> */}
         </div>
-
-
 
     </div>
   )
