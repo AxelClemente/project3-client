@@ -6,11 +6,10 @@ import { AuthContext } from "../context/auth.context";
 const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5005";
 
 const Create = () => {
-  const { user } = useContext(AuthContext);
+  const { user, setUser } = useContext(AuthContext);
 
   const [stroll, setStroll] = useState({
     title: "",
-    country: "",
     city: "",
     description: "",
     duration: "",
@@ -45,11 +44,21 @@ const Create = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const userId = user._id;
-    console.log(userId); // add this line to check the value of userId
+
+    // Add userId to the stroll object
+    const updatedStroll = { ...stroll, userId: user._id };
 
     axios
-      .post(`${API_URL}/strolls`, { ...stroll, user: user._id })
-      .then(() => navigate("/profile"))
+      .post(`${API_URL}/strolls`, updatedStroll)
+      .then((response) => {
+        // Update the user context with the new `strollId`
+        setUser({
+          ...user,
+          stroll: [...user.stroll, response.data._id],
+        });
+        // Navigate to the user profile page
+        navigate("/profile");
+      })
       .catch((err) => {
         console.error(err);
         const errorDescription = err.response.data.message;
@@ -123,7 +132,6 @@ const Create = () => {
           onChange={handleChange}
         />
         <br />
-
         <label htmlFor="stops2">stops2:</label>
         <br />
         <input
