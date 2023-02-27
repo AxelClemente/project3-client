@@ -168,28 +168,20 @@ const StrollList = () => {
   return (
     <div>
       <div className="ResearchFilterBar">
-        <div className="ResearchBar">
-          <h1>Research bar</h1>
-          <SearchCountry searchCountryStrollList={searchCountryStrollList} />
-          <br />
+        <SearchCountry searchCountryStrollList={searchCountryStrollList} />
+        <br />
+        <SearchCity searchCityStrollList={searchCityStrollList} />
+        <br />
 
-          <SearchCity searchCityStrollList={searchCityStrollList} />
-          <br />
-        </div>
-
-        <div className="FilterBar">
-          <h1>Filter bar</h1>
-          <FilterCountry
-            filterCountryStrollList={filterCountryStrollList}
-            strolls={filterStrolls}
-          />
-          <br />
-
-          <FilterCity
-            filterCityStrollList={filterCityStrollList}
-            strolls={filterStrolls}
-          />
-        </div>
+        <FilterCountry
+          filterCountryStrollList={filterCountryStrollList}
+          strolls={filterStrolls}
+        />
+        <br />
+        <FilterCity
+          filterCityStrollList={filterCityStrollList}
+          strolls={filterStrolls}
+        />
       </div>
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
