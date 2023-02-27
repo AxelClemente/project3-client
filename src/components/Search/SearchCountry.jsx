@@ -12,7 +12,7 @@ function SearchCountry(props) {
 
   return (
     <div className="SearchCountry">
-      <label>Search your stroll by Country</label>
+      <label>Search by Country</label>
       <input type="text" value={firstLetter} onChange={handleSelect} />
     </div>
   );

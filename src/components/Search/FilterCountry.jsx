@@ -13,7 +13,7 @@ function FilterCountry(props) {
 
   return (
     <div className="FilterCountry">
-      <label>Filter strolls by Country:</label>
+      <label>Filter by Country:</label>
       <select value={firstLetter} onChange={handleSelect}>
         <option value="All">All</option>
         {strolls.map((stroll) => {

@@ -12,7 +12,7 @@ function SearchCity(props) {
 
   return (
     <div className="SearchCity">
-      <label>Search your stroll by City:</label>
+      <label>Search by City:</label>
       <input type="text" value={firstLetter} onChange={handleSelect} />
     </div>
   );

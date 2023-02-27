@@ -13,7 +13,7 @@ function FilterCity(props) {
 
   return (
     <div className="FilterCity">
-      <label>Filter strolls by City:</label>
+      <label>Filter by City:</label>
       <select value={firstLetter} onChange={handleSelect}>
         <option value="All">All</option>
         {strolls.map((stroll) => {
