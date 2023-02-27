@@ -106,9 +106,9 @@ const StrollList = () => {
                   alignItems: "center",
                 }}
               >
-                <span className="bg-customPrimary rounded-full text-white px-3">
+                {/* <span className="bg-customPrimary rounded-full text-white px-3">
                   {stroll.city.charAt(0).toUpperCase() + stroll.city.slice(1)}
-                </span>
+                </span> */}
                 <div className="flex gap-x-2" style={{ alignItems: "center" }}>
                   <div>
                     <RiStarSFill />
@@ -140,9 +140,9 @@ const StrollList = () => {
               </div>
             </div>
             <div className="text-lg font-semibold mb-2">
-              <Link to={`/strolls/${stroll._id}`}>
+              {/* <Link to={`/strolls/${stroll._id}`}>
                 {stroll.title.charAt(0).toUpperCase() + stroll.title.slice(1)}
-              </Link>
+              </Link> */}
             </div>
             <div className="flex" style={{ justifyContent: "space-between" }}>
               <div>{stroll.budget}€ avg.</div>

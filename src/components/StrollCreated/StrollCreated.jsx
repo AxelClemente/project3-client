@@ -15,7 +15,7 @@ const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5005";
 
 const StrollCreated = () => {
   const [strolls, setStrolls] = useState([]);
-  const { user } = useContext(AuthContext);
+  const { user, setUser  } = useContext(AuthContext);
 
   useEffect(() => {
     const fetchStrolls = async () => {
@@ -38,11 +38,30 @@ const StrollCreated = () => {
 
   console.log("Strolls:", strolls);
 
+  // const handleDeleteStroll = async (strollId) => {
+  //   try {
+  //     const response = await axios.delete(`${API_URL}/strolls/${strollId}`);
+  //     if (response.status === 200) {
+  //       setStrolls(strolls.filter(stroll => stroll._id !== strollId));
+  //     }
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
+
+  //testing if we can remove the strollId from the property stroll of the User model too
   const handleDeleteStroll = async (strollId) => {
     try {
       const response = await axios.delete(`${API_URL}/strolls/${strollId}`);
       if (response.status === 200) {
+        // Remove the deleted stroll from the strolls state
         setStrolls(strolls.filter(stroll => stroll._id !== strollId));
+  
+        // Remove the deleted stroll from the user's stroll property in the database
+        const updatedUser = await axios.put(`${API_URL}/users/${user._id}`, {
+          stroll: user.stroll.filter(id => id !== strollId)
+        });
+        setUser(updatedUser.data);
       }
     } catch (error) {
       console.error(error);

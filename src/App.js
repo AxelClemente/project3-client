@@ -20,6 +20,7 @@ import LoginPage from "./pages/LoginPage";
 import User from "./pages/User";
 import Create from "./pages/Create";
 import Dashboard from "./pages/Dashboard/Dashboard";
+import City from "./components/City/City";
 
 function App() {
   /* eslint-disable no-unused-vars */
@@ -41,6 +42,7 @@ function App() {
         {/* { location.pathname !== "/" && <Navbar/>} */}
         <Header />
         <Routes>
+          {/* <Route path="/" element={<Landing />} /> */}
           <Route path="/" element={<Landing />} />
           <Route path="/strolls" element={<Home />} />
           <Route path="/strolls/:id" element={<StrollDetails />} />

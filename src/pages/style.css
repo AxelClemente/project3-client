@@ -147,13 +147,7 @@ img {
   top: 50%;
   left: 0;
 }
-input{
-  position: absolute;
-  width: calc(100% - 20px);
-  padding: 10px;
-  margin: 10px;
-  z-index: 100; /* z-index: this comment will be always on top */
-}
+
 #test{
   background-color: var(--first-color-second);
 }
