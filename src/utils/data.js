@@ -3,15 +3,15 @@ import { CiCloudOn, CiBrightnessUp} from "react-icons/ci";
 
 export const plans = [
 
+  // {
+  //   name: "Free Plan",
+  //   projects: "+ 1.000 travel routes", 
+  //   icon: CiCloudOn,
+  //   bg: "#645888",
+  // },
   {
-    name: "Free Plan",
-    projects: "+ 1.000 travel routes", 
-    icon: CiCloudOn,
-    bg: "#645888",
-  },
-  {
-    name: "Premium",
-    projects: "Accomodation, local guides and more!",
+    name: "Supporting local guides",
+    projects: "Connect with travelers and become a trusted source of insider knowledge",
     icon: CiBrightnessUp,
     bg: "#f6dd83",
   },

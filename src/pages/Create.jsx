@@ -320,7 +320,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from '../context/auth.context';
 import "../styles/create.css";
-import css from '../components/Landing/Landing.module.scss'
+
 
 
 const API_URL= process.env.REACT_APP_API_URL || 'http://localhost:5005';
@@ -466,6 +466,10 @@ const handleSubmit = (e) => {
               <div class="create-first-img">
                     <img                   
                     src="/images/1.png" alt="" width="810" />
+              </div>
+              <div class="contact-form">
+                <h2 className='primaryText'>Now describe <span className='text-customPrimary'> 6</span> places</h2>
+                <span className='secondaryText'>  Include at least  <span className="text-customGreen">2 restaurants</span> or food stops</span>
               </div>
               <div class="contact__inputs grid">
                     <div class="contact__content">

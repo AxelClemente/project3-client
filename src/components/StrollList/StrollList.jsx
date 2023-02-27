@@ -106,9 +106,9 @@ const StrollList = () => {
                   alignItems: "center",
                 }}
               >
-                {/* <span className="bg-customPrimary rounded-full text-white px-3">
+                <span className="bg-customPrimary rounded-full text-white px-3">
                   {stroll.city.charAt(0).toUpperCase() + stroll.city.slice(1)}
-                </span> */}
+                </span>
                 <div className="flex gap-x-2" style={{ alignItems: "center" }}>
                   <div>
                     <RiStarSFill />

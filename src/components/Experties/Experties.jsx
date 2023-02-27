@@ -29,7 +29,7 @@ const Experties = () => {
                                         <exp.icon size={25} color="white" />
                                     </div>
 
-                                    <div>
+                                    <div className=''>
                                         <span>
                                             {exp.name}
                                         </span>

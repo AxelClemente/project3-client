@@ -18,6 +18,9 @@
   --container-color:#FFF;
   --scroll-bar-color:hsl(var(--hue-color), 12%, 90%);
   --scroll-thumb-color:hsl(var(--hue-color), 12%, 80%);
+  /* rgb color mode */
+  --first-colorrgb:rgb(237,119,113);
+
   
   /*======== Font and typography ========*/
   --body-font: 'Poppins', sans-serif;
@@ -293,14 +296,14 @@ img {
 /*======= BUTTONS =======*/
 .button{
   display: inline-block;
-  background-color: var(--first-color);
-  color: #FFF;
+  background-color: var(--first-colorrgb);
+  color: black;
   padding: 1rem;
   border-radius: .5rem;
   font-weight: var(--font-medium);
 }
 .button:hover{
-  background-color: var(--first-color-alt);
+  background-color: var(--first-colorrgb);
 }
 .button__icon{
   font-size: 1.25rem;
