@@ -12,17 +12,54 @@ import {
 import { AuthContext } from "../../context/auth.context";
 import FilterCity from "../Search/FilterCity";
 import FilterCountry from "../Search/FilterCountry";
+import SearchCity from "../Search/SearchCity";
+import SearchCountry from "../Search/SearchCountry";
 
 const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5005";
 
 const StrollList = () => {
   const [strolls, setStrolls] = useState([]);
+  const [filterStrolls, setFilterStrolls] = useState([]);
   const { user } = useContext(AuthContext);
   const [isStrollAdded, setIsStrollAdded] = useState(false);
   const [averageRatings, setAverageRatings] = useState({});
   const [strollsData, setStrollsData] = useState([]);
 
   // console.log(strolls);
+
+  // search stroll by city
+  const searchCityStrollList = (str) => {
+    let filteredStrolls;
+
+    if (str === "") {
+      filteredStrolls = strollsData;
+
+      setStrolls(filteredStrolls);
+    } else {
+      filteredStrolls = strollsData.filter((stroll) => {
+        return stroll.city.toLowerCase().includes(str.toLowerCase());
+      });
+
+      setStrolls(filteredStrolls);
+    }
+  };
+
+  // search stroll by country
+  const searchCountryStrollList = (str) => {
+    let filteredStrolls;
+
+    if (str === "") {
+      filteredStrolls = strollsData;
+
+      setStrolls(filteredStrolls);
+    } else {
+      filteredStrolls = strollsData.filter((stroll) => {
+        return stroll.country.toLowerCase().includes(str.toLowerCase());
+      });
+
+      setStrolls(filteredStrolls);
+    }
+  };
 
   // filter by city
   const filterCityStrollList = (str) => {
@@ -31,12 +68,14 @@ const StrollList = () => {
     if (str === "All") {
       filteredStrolls = strollsData;
 
+      console.log("filteredStrolls", filteredStrolls);
       setStrolls(filteredStrolls);
     } else {
       filteredStrolls = strollsData.filter((stroll) => {
-        return stroll.city[0].toLowerCase() === str.toLowerCase();
+        return stroll?.city.toLowerCase() === str.toLowerCase();
       });
 
+      console.log("filteredStrolls", filteredStrolls);
       setStrolls(filteredStrolls);
     }
   };
@@ -52,7 +91,7 @@ const StrollList = () => {
       setStrolls(filteredStrolls);
     } else {
       filteredStrolls = strollsData.filter((stroll) => {
-        return stroll?.country[0].toLowerCase() === str.toLowerCase();
+        return stroll?.country.toLowerCase() === str.toLowerCase();
       });
 
       console.log("filteredStrolls", filteredStrolls);
@@ -67,6 +106,7 @@ const StrollList = () => {
       .then((response) => {
         // console.log('response.data', response.data)
         setStrolls(response.data);
+        setFilterStrolls(response.data);
         setStrollsData(response.data);
       })
       .catch((error) => {
@@ -126,83 +166,109 @@ const StrollList = () => {
   }, [strolls]);
 
   return (
-    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-      <h1>filters</h1>
-      <FilterCountry filterCountryStrollList={filterCountryStrollList} />
-      <FilterCity filterCityStrollList={filterCityStrollList} />
+    <div>
+      <div className="ResearchFilterBar">
+        <div className="ResearchBar">
+          <h1>Research bar</h1>
+          <SearchCountry searchCountryStrollList={searchCountryStrollList} />
+          <br />
 
-      {strolls.map((stroll) => {
-        return (
-          <div
-            key={stroll._id}
-            className="bg-white shadow-1 p-5  hover:shadow-2 transition"
-          >
-            <Link to={`/strolls/${stroll._id}`}>
-              <img className="mb-8" src={stroll.img1} alt="img" />
-            </Link>
+          <SearchCity searchCityStrollList={searchCityStrollList} />
+          <br />
+        </div>
 
-            <div className="mb-4">
-              <div
-                className="text-sm mb-8 flex"
-                style={{
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                }}
-              >
-                <span className="bg-customPrimary rounded-full text-white px-3">
-                  {stroll.country}
-                </span>
+        <div className="FilterBar">
+          <h1>Filter bar</h1>
+          <FilterCountry
+            filterCountryStrollList={filterCountryStrollList}
+            strolls={filterStrolls}
+          />
+          <br />
 
-                <span className="bg-customPrimary rounded-full text-white px-3">
-                  {stroll.city.charAt(0).toUpperCase() + stroll.city.slice(1)}
-                </span>
-                <div className="flex gap-x-2" style={{ alignItems: "center" }}>
-                  <div>
-                    <RiStarSFill />
-                  </div>
-                  <p style={{ fontWeight: "bold" }}>
-                    {averageRatings[stroll._id] || 0}
-                  </p>
-                </div>
-              </div>
-              <div className="flex gap-x-6">
-                <div className="flex items-center">
-                  <RiTimerLine className="dropdown-icon-customYellow" />
-                  <span className="bg-customSecondary rounded-full text-black px-3">
-                    {stroll.duration}
-                  </span>
-                </div>
-                <div className="flex items-center">
-                  <RiWalkFill className="dropdown-icon-customPurple" />
-                  <span className="bg-customPurple rounded-full text-white px-3">
-                    {stroll.distance}
-                  </span>
-                </div>
-                <div className="flex items-center">
-                  <RiUserHeartLine className="dropdown-icon-customFour" />
-                  <span className="bg-green-500 rounded-full text-white px-3">
-                    {stroll.guide}
-                  </span>
-                </div>
-              </div>
-            </div>
-            <div className="text-lg font-semibold mb-2">
+          <FilterCity
+            filterCityStrollList={filterCityStrollList}
+            strolls={filterStrolls}
+          />
+        </div>
+      </div>
+
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {strolls.map((stroll) => {
+          return (
+            <div
+              key={stroll._id}
+              className="bg-white shadow-1 p-5  hover:shadow-2 transition"
+            >
               <Link to={`/strolls/${stroll._id}`}>
-                {stroll.title.charAt(0).toUpperCase() + stroll.title.slice(1)}
+                <img className="mb-8" src={stroll.img1} alt="img" />
               </Link>
+
+              <div className="mb-4">
+                <div
+                  className="text-sm mb-8 flex"
+                  style={{
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                  }}
+                >
+                  <span className="bg-customPrimary rounded-full text-white px-3">
+                    {stroll.country}
+                  </span>
+
+                  <span className="bg-customPrimary rounded-full text-white px-3">
+                    {stroll.city.charAt(0).toUpperCase() + stroll.city.slice(1)}
+                  </span>
+                  <div
+                    className="flex gap-x-2"
+                    style={{ alignItems: "center" }}
+                  >
+                    <div>
+                      <RiStarSFill />
+                    </div>
+                    <p style={{ fontWeight: "bold" }}>
+                      {averageRatings[stroll._id] || 0}
+                    </p>
+                  </div>
+                </div>
+                <div className="flex gap-x-6">
+                  <div className="flex items-center">
+                    <RiTimerLine className="dropdown-icon-customYellow" />
+                    <span className="bg-customSecondary rounded-full text-black px-3">
+                      {stroll.duration}
+                    </span>
+                  </div>
+                  <div className="flex items-center">
+                    <RiWalkFill className="dropdown-icon-customPurple" />
+                    <span className="bg-customPurple rounded-full text-white px-3">
+                      {stroll.distance}
+                    </span>
+                  </div>
+                  <div className="flex items-center">
+                    <RiUserHeartLine className="dropdown-icon-customFour" />
+                    <span className="bg-green-500 rounded-full text-white px-3">
+                      {stroll.guide}
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div className="text-lg font-semibold mb-2">
+                <Link to={`/strolls/${stroll._id}`}>
+                  {stroll.title.charAt(0).toUpperCase() + stroll.title.slice(1)}
+                </Link>
+              </div>
+              <div className="flex" style={{ justifyContent: "space-between" }}>
+                <div>{stroll.budget}€ avg.</div>
+                <i
+                  className={`uil uil-heart-sign cursor-pointer ${
+                    stroll.isStrollAdded ? "text-customGreen" : ""
+                  }`}
+                  onClick={() => handleFavoritesClick(stroll._id)}
+                ></i>
+              </div>
             </div>
-            <div className="flex" style={{ justifyContent: "space-between" }}>
-              <div>{stroll.budget}€ avg.</div>
-              <i
-                className={`uil uil-heart-sign cursor-pointer ${
-                  stroll.isStrollAdded ? "text-customGreen" : ""
-                }`}
-                onClick={() => handleFavoritesClick(stroll._id)}
-              ></i>
-            </div>
-          </div>
-        );
-      })}
+          );
+        })}
+      </div>
     </div>
   );
 };
