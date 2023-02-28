@@ -176,7 +176,7 @@ const Header = () => {
                 <button onClick={logOutUser}>Log out</button>
               </Link>
               <div className='flex items-center gap-6'>
-                <Link to={"/users/:id/create"} className='bg-customBlue hover:bg-customSecondary px-4 py-3 rounded-lg transition' style={{ color: 'white' }}>Create</Link>
+                <Link to={"/users/:id/create"} className='bg-customPurple hover:bg-customSecondary px-4 py-3 rounded-lg transition' style={{ color: 'white' }}>Create</Link>
               </div>
             </>
           )}

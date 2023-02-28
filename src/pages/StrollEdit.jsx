@@ -1,77 +1,77 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect  } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { AuthContext } from '../context/auth.context';
 import "../styles/create.css";
-
-
+import {
+  RiEdit2Line
+} from "react-icons/ri";
 
 const API_URL= process.env.REACT_APP_API_URL || 'http://localhost:5005';
 
-
-
-const Create = () => {
+const StrollEdit = () => {
+  const { id } = useParams(); // Get the ID from the URL
   const { user, setUser } = useContext(AuthContext);
+
+  const [stroll, setStroll] = useState({
+    title: "",
+    country: "",
+    city: "",
+    description: "",
+    description1: "",
+    description2: "",
+    description3: "",
+    description4: "",
+    description5: "",
+    description6: "",
+    duration: "",
+    stops1: "",
+    stops2: "",
+    stops3: "",
+    stops4: "",
+    stops5: "",
+    stops6: "",
+    img1: "",
+    img2: "",
+    img3: "",
+    img4: "",
+    img5: "",
+    img6: "",
+    budget: "",
+    distance: "",
+    guide: "",
+  });
   
 
-    const [stroll, setStroll] = useState({
-      
-        title: "",
-        country: "",
-        city: "",
-        description: "",
-        description1: "",
-        description2: "",
-        description3: "",
-        description4: "",
-        description5: "",
-        description6: "",
-        duration: "",
-        stops1: "",
-        stops2: "",
-        stops3: "",
-        stops4: "",
-        stops5: "",
-        stops6: "",
-        img1: "",
-        img2: "",
-        img3: "",
-        img4: "",
-        img5: "",
-        img6: "",
-        budget: "",
-        distance: "",
-        guide: "",
-    });
-  
-    const [errorMessage, setErrorMessage] = useState(null);
-  
-    const navigate = useNavigate();
-  
-    const handleChange = (e) => {
-      const name = e.target.name;
-      const value = e.target.value;
-  
-      setStroll({ ...stroll, [name]: value });
-    };
-  
+  const [errorMessage, setErrorMessage] = useState(null);
 
-//Test to add both propertys at the same time
-const handleSubmit = (e) => {
-  e.preventDefault();
-  const userId = user._id;
-  
-  // Add userId to the stroll object
-  const updatedStroll = { ...stroll, userId: user._id };
+  const navigate = useNavigate();
 
-  axios.post(`${API_URL}/strolls`, updatedStroll)
+  const handleChange = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+
+    setStroll({ ...stroll, [name]: value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const userId = user._id;
+
+    // Add userId to the stroll object
+    const updatedStroll = { ...stroll, userId: userId };
+    console.log("Esta es la stroll actualizada!!!!!",updatedStroll);
+
+    axios.put(`${API_URL}/strolls/${id}`, updatedStroll) // Pass the ID to the URL
     .then((response) => {
+      console.log("Response from server:", response);
       // Update the user context with the new `strollId`
       setUser({
         ...user,
         stroll: [...user.stroll, response.data._id]
       });
       // Navigate to the user profile page
+      console.log("User strolls after update:", user.stroll);
       navigate("/strolls");
     })
     .catch((err) => {
@@ -79,7 +79,8 @@ const handleSubmit = (e) => {
       const errorDescription = err.response.data.message;
       setErrorMessage(errorDescription);
     });
-};
+  
+  };
     
   
     return (
@@ -88,8 +89,10 @@ const handleSubmit = (e) => {
     <section class="contact section" id="contactme">
 
             <div class="contact-form">
-                <h2 className='primaryText'>Words<span className='text-customSecondary'> paint</span> a picture</h2>
-                <span className='secondaryText'>  make your <span className="test">new Stroll</span> come to life</span>
+                <h2 className='primaryText'>Let's<span className='text-customSecondary'> edit!</span></h2>
+                <div className="flex items-center">
+                    <p>hola</p><RiEdit2Line style={{ fontSize: '2rem' }} />
+                </div>
             </div>
        
         <div class="contact__container container grid">
@@ -305,7 +308,7 @@ const handleSubmit = (e) => {
                     </div>
               </div>
                <div>
-                    <button type="submit" class="button button--flex">Create Stroll</button>
+                    <button type="submit" class="button button--flex">Update</button>
                </div>       
 
             </form>
@@ -315,4 +318,4 @@ const handleSubmit = (e) => {
     );
   };
   
-  export default Create;
+  export default StrollEdit;

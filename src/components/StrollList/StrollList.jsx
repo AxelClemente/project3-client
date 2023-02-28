@@ -90,14 +90,16 @@ const StrollList = () => {
         
         
         return (
+          
           <div
+            
             key={stroll._id}
             className="bg-white shadow-1 p-5  hover:shadow-2 transition"
           >
             <Link to={`/strolls/${stroll._id}`}>
               <img className="mb-8" src={stroll.img1} alt="img" />
             </Link>
-
+            
             <div className="mb-4">
               <div
                 className="text-sm mb-8 flex"
@@ -116,7 +118,9 @@ const StrollList = () => {
                   <p style={{ fontWeight: "bold" }}>
                     {averageRatings[stroll._id] || 0}
                   </p>
+                  
                 </div>
+
               </div>
               <div className="flex gap-x-6">
                 <div className="flex items-center">
@@ -140,9 +144,9 @@ const StrollList = () => {
               </div>
             </div>
             <div className="text-lg font-semibold mb-2">
-              {/* <Link to={`/strolls/${stroll._id}`}>
+              <Link to={`/strolls/${stroll._id}`}>
                 {stroll.title.charAt(0).toUpperCase() + stroll.title.slice(1)}
-              </Link> */}
+              </Link>
             </div>
             <div className="flex" style={{ justifyContent: "space-between" }}>
               <div>{stroll.budget}€ avg.</div>

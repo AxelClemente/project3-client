@@ -21,6 +21,7 @@ import User from "./pages/User";
 import Create from "./pages/Create";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import City from "./components/City/City";
+import StrollEdit from "./pages/StrollEdit";
 
 function App() {
   /* eslint-disable no-unused-vars */
@@ -46,6 +47,7 @@ function App() {
           <Route path="/" element={<Landing />} />
           <Route path="/strolls" element={<Home />} />
           <Route path="/strolls/:id" element={<StrollDetails />} />
+          <Route path="/strolls/:id/edit" element={<StrollEdit />} />
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/signup" element={<SignUpPage />} />
           <Route path="/login" element={<LoginPage />} />

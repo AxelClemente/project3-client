@@ -7,9 +7,12 @@ import {
   RiTimerLine,
   RiWalkFill,
   RiStarSFill,
-  RiDeleteBin7Line
+  RiDeleteBin7Line,
+  RiPencilLine,
+  RiEdit2Line
 } from "react-icons/ri";
 import { AuthContext } from "../../context/auth.context";
+import StrollEdit from "../../pages/StrollEdit";
 
 const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5005";
 
@@ -19,12 +22,12 @@ const StrollCreated = () => {
 
   useEffect(() => {
     const fetchStrolls = async () => {
-      console.log("Fetching strolls...");
+      // console.log("Fetching strolls...");
       if (!user) {
-        console.log("No user found");
+        // console.log("No user found");
         return;
       }
-      console.log("User found", user._id);
+      // console.log("User found", user._id);
       try {
         const response = await axios.get(`${API_URL}/strolls/user/${user._id}`);
         setStrolls(response.data.strolls);
@@ -36,18 +39,7 @@ const StrollCreated = () => {
     fetchStrolls();
   }, [user]);
 
-  console.log("Strolls:", strolls);
-
-  // const handleDeleteStroll = async (strollId) => {
-  //   try {
-  //     const response = await axios.delete(`${API_URL}/strolls/${strollId}`);
-  //     if (response.status === 200) {
-  //       setStrolls(strolls.filter(stroll => stroll._id !== strollId));
-  //     }
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // };
+  // console.log("Strolls:", strolls);
 
   //testing if we can remove the strollId from the property stroll of the User model too
   const handleDeleteStroll = async (strollId) => {
@@ -68,19 +60,27 @@ const StrollCreated = () => {
     }
   };
 
+  //EDIT STROLL
+  const handleEditStroll = (strollId) => {
+    window.location.href = `/strolls/${strollId}/edit`;
+  };
+
 
   return (
     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
       {strolls.map((stroll) => {
+        
         return (
           <div
             key={stroll._id}
             className="bg-white shadow-1 p-5  hover:shadow-2 transition"
+            
           >
             <Link to={`/strolls/${stroll._id}`}>
               <img className="mb-8" src={stroll.img1} alt="img" />
             </Link>
             <div className="mb-4">
+            
               <div
                 className="text-sm mb-8 flex"
                 style={{
@@ -130,6 +130,15 @@ const StrollCreated = () => {
                 onClick={() => handleDeleteStroll(stroll._id)}
               >
                 <RiDeleteBin7Line />
+              </span>
+            </div>
+            <div className="flex items-end" style={{ justifyContent: "space-between" }}>
+              <div></div>
+              <span 
+                  className="flex items-center cursor-pointer"
+                  onClick={() => handleEditStroll(stroll._id)}
+                >
+                  <RiPencilLine />
               </span>
             </div>
           </div>
