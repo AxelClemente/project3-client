@@ -44,6 +44,24 @@ const StrollList = () => {
   // filter by country
   const filterCountryStrollList = (str) => {
     let filteredStrolls;
+<<<<<<< HEAD
+
+    if (str === "All") {
+      filteredStrolls = strollsData;
+
+      console.log("filteredStrolls", filteredStrolls);
+      setStrolls(filteredStrolls);
+    } else {
+      filteredStrolls = strollsData.filter((stroll) => {
+        return stroll?.country[0].toLowerCase() === str.toLowerCase();
+      });
+
+      console.log("filteredStrolls", filteredStrolls);
+      setStrolls(filteredStrolls);
+    }
+  };
+=======
+>>>>>>> 58f01b5bd739d11628032a969d4a4f6029ddc200
 
     if (str === "All") {
       filteredStrolls = strollsData;
@@ -60,7 +78,7 @@ const StrollList = () => {
     }
   };
 
-  console.log("the user is:",user)
+  console.log("the user is:", user);
   useEffect(() => {
     axios
       .get(`${API_URL}/strolls`)
