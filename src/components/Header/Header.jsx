@@ -37,7 +37,7 @@
 //         <Link to="/strolls">
 //           <img src="images/Stroll2.png" alt="logo" width="100" height="100"/>
 //         </Link>
-      
+
 //         <ul
 //           ref={menuRef}
 //           style={getMenuStyles(menuOpened)}
@@ -104,9 +104,6 @@
 
 // export default Header;
 
-
-
-
 //********* WHITE HEADER ON SCROLL */
 
 import { useContext } from "react";
@@ -144,11 +141,7 @@ const Header = () => {
     >
       <div className={`flexCenter mb-4 innerWidth ${css.container}`}>
         <Link to="/strolls">
-<<<<<<< HEAD
           <img src={logoCityStroll} alt="logo" width="120" height="auto" />
-=======
-          <img src="images/Stroll.png" alt="logo" width="100" height="100"/>
->>>>>>> 8640f161e45093672261a6ab1921ff35bdc66bc5
         </Link>
 
         <ul
@@ -180,20 +173,14 @@ const Header = () => {
                 {" "}
                 <button onClick={logOutUser}>Log out</button>
               </Link>
-<<<<<<< HEAD
-
               <div className="flex items-center gap-6">
                 <Link
                   to={"/users/:id/create"}
-                  className="bg-customBlue hover:bg-customSecondary px-4 py-3 rounded-lg transition"
+                  className="bg-customPurple hover:bg-customSecondary px-4 py-3 rounded-lg transition"
                   style={{ color: "white" }}
                 >
                   Create
                 </Link>
-=======
-              <div className='flex items-center gap-6'>
-                <Link to={"/users/:id/create"} className='bg-customPurple hover:bg-customSecondary px-4 py-3 rounded-lg transition' style={{ color: 'white' }}>Create</Link>
->>>>>>> 8640f161e45093672261a6ab1921ff35bdc66bc5
               </div>
             </>
           )}
@@ -202,9 +189,7 @@ const Header = () => {
               <Link to={"/"}>
                 {" "}
                 <button>Home</button>{" "}
-<<<<<<< HEAD
-              </Link> */}
-
+              </Link>
               <div className="flex items-center gap-6">
                 <Link to={"/login"} className="hover:text-custom transition">
                   Log In
@@ -216,12 +201,6 @@ const Header = () => {
                 >
                   Sign up
                 </Link>
-=======
-              </Link>
-              <div className='flex items-center gap-6'>
-                <Link to={"/login"} className='hover:text-custom transition'>Log In</Link>
-                <Link to={"/signup"} className='bg-customPrimary hover:bg-customSecondary px-4 py-3 rounded-lg transition' style={{ color: 'white' }}>Sign up</Link>
->>>>>>> 8640f161e45093672261a6ab1921ff35bdc66bc5
               </div>
             </>
           )}
@@ -237,5 +216,3 @@ const Header = () => {
   );
 };
 export default Header;
-
-
