@@ -58,7 +58,7 @@ const User = () => {
           
           {isLoggedIn && (
             <>
-              <p className="featuredTitle">Welcome back {user.username}!</p>
+              <h2 className='primaryText' >Welcome back  <span className='text-customPrimary'>{user.username}!</span></h2>
               <br />
               <img
   src={

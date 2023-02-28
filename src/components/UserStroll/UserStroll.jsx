@@ -38,6 +38,7 @@ const UserStroll = () => {
       })
       .then(response => {
         setStrolls(response.data.list);
+        // console.log("esto deberia ser toda la info del usuario",response.data.list)
       })
       .catch(err => console.log(err));
     }

@@ -26,6 +26,7 @@ const Landing = () => {
                     <br /> 
                     every time
                 </motion.span>
+                
                 <motion.span
                 variants={fadeIn("left", "tween", 0.4, 1)}  
                 className='secondaryText'>Create <span className='text-customSecondary'>customized</span> travel routes! 

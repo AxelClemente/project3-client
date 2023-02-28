@@ -6,6 +6,7 @@ import axios from 'axios';
 import {RiStarLine, RiStarSFill} from 'react-icons/ri';
 
 import { AuthContext } from '../context/auth.context';
+import User from './User';
 const API_URL= process.env.REACT_APP_API_URL || 'http://localhost:5005';
 
 
@@ -31,9 +32,10 @@ const StrollDetails = () => {
 
     useEffect(() => {
         axios.get(`${API_URL}/strolls/${id}`)
-            .then((response) => {
-                console.log('respuesta del API :', response.data)
+            .then(response => {
+                
                 setStrolls(response.data)
+                // console.log('respuesta del API :', response.data)
             })
             .catch(error => {
                 console.error(error);
@@ -149,9 +151,15 @@ const StrollDetails = () => {
             
             
             <section class="qualification section">
+                <div class="section__title">
+                    <img src={user.profilePicture}  style={{ width: "100px", height: "100px" }} alt="" />
+                    <p>Hosted by {user.username}</p>
+                </div>
+                
                 <h2 class="section__title">{strolls.title.charAt(0).toUpperCase() + strolls.title.slice(1)}</h2>
                 <span class="section__subtitle">Lets Start🚀</span>
-                <div className='flex text-customThird cursor-pointer mb-10 ml-8' style={{ justifyContent: 'center', alignItems: 'center' }}>
+
+                <div className='flex text-customThird cursor-pointer mb-10 ' style={{ justifyContent: 'center', alignItems: 'center' }}>
                     {renderStars(rating, strolls._id)}
                     { rated && 
                         <p className='ml-2 text-customGreen'>
@@ -309,25 +317,17 @@ const StrollDetails = () => {
                     <div>
                         <div className={activeModal === 0 ? "services__modal active-modal" : "services__modal"}>
                             <div className="services__modal-content">
-                                <h4 className="services__modal-title">Development</h4>
+                                <h4 className="services__modal-title">{strolls.stops1}</h4>
                                 <i className="uil uil-times services__modal-close" onClick={closeModal}></i>
 
                                 <ul className="services__modal-services grid">
                                     <li className="services__modal-service">
-                                        <i className="uil uil-parking-circle services__modal-icon"></i>
-                                        <p>Nearest parking .</p>
+                                        <i className="uil uil-check-circle services__modal-icon"></i>
+                                        <img src={strolls.img1} alt="" />
                                     </li>
                                     <li className="services__modal-service">
                                         <i className="uil uil-check-circle services__modal-icon"></i>
-                                        <img src={strolls.img5} alt="" />
-                                    </li>
-                                    <li className="services__modal-service">
-                                        <i className="uil uil-check-circle services__modal-icon"></i>
-                                        <p>{strolls.description}</p>
-                                    </li>
-                                    <li className="services__modal-service">
-                                        <i className="uil uil-check-circle services__modal-icon"></i>
-                                        <p>I position xs brand.</p>
+                                        <img src={strolls.description1} alt="" />
                                     </li>
                                 </ul>
 

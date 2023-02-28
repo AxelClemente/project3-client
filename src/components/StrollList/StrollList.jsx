@@ -84,6 +84,7 @@ const StrollList = () => {
   const filterCountryStrollList = (str) => {
     let filteredStrolls;
 
+
     if (str === "All") {
       filteredStrolls = strollsData;
 
@@ -173,6 +174,7 @@ const StrollList = () => {
         <SearchCity searchCityStrollList={searchCityStrollList} />
         <br />
 
+<<<<<<< HEAD
         <FilterCountry
           filterCountryStrollList={filterCountryStrollList}
           strolls={filterStrolls}
@@ -190,6 +192,21 @@ const StrollList = () => {
           .sort((a, b) => a.country.localeCompare(b.country))
           .map((stroll) => {
             return (
+=======
+      {strolls.map((stroll) => {
+        return (
+          
+          <div
+            
+            key={stroll._id}
+            className="bg-white shadow-1 p-5  hover:shadow-2 transition"
+          >
+            <Link to={`/strolls/${stroll._id}`}>
+              <img className="mb-8" src={stroll.img1} alt="img" />
+            </Link>
+            
+            <div className="mb-4">
+>>>>>>> 8640f161e45093672261a6ab1921ff35bdc66bc5
               <div
                 key={stroll._id}
                 className="bg-white shadow-1 p-5  hover:shadow-2 transition"
@@ -226,6 +243,7 @@ const StrollList = () => {
                       </p>
                     </div>
                   </div>
+<<<<<<< HEAD
                   <div className="flex gap-x-6">
                     <div className="flex items-center">
                       <RiTimerLine className="dropdown-icon-customYellow" />
@@ -264,11 +282,60 @@ const StrollList = () => {
                     }`}
                     onClick={() => handleFavoritesClick(stroll._id)}
                   ></i>
+=======
+                  <p style={{ fontWeight: "bold" }}>
+                    {averageRatings[stroll._id] || 0}
+                  </p>
+                  
+>>>>>>> 8640f161e45093672261a6ab1921ff35bdc66bc5
                 </div>
+
               </div>
+<<<<<<< HEAD
             );
           })}
       </div>
+=======
+              <div className="flex gap-x-6">
+                <div className="flex items-center">
+                  <RiTimerLine className="dropdown-icon-customYellow" />
+                  <span className="bg-customSecondary rounded-full text-black px-3">
+                    {stroll.duration}
+                  </span>
+                </div>
+                <div className="flex items-center">
+                  <RiWalkFill className="dropdown-icon-customPurple" />
+                  <span className="bg-customPurple rounded-full text-white px-3">
+                    {stroll.distance}
+                  </span>
+                </div>
+                <div className="flex items-center">
+                  <RiUserHeartLine className="dropdown-icon-customFour" />
+                  <span className="bg-green-500 rounded-full text-white px-3">
+                    {stroll.guide}
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div className="text-lg font-semibold mb-2">
+              <Link to={`/strolls/${stroll._id}`}>
+                {stroll.title.charAt(0).toUpperCase() + stroll.title.slice(1)}
+              </Link>
+            </div>
+            <div className="flex" style={{ justifyContent: "space-between" }}>
+              <div>{stroll.budget}€ avg.</div>
+              <i
+                className={`uil uil-heart-sign cursor-pointer ${
+                  stroll.isStrollAdded ? "text-customGreen" : ""
+                }`}
+                onClick={() => handleFavoritesClick(stroll._id)}
+              ></i>
+              
+            </div>
+          </div>
+        );
+      })}
+>>>>>>> 8640f161e45093672261a6ab1921ff35bdc66bc5
     </div>
   );
 };

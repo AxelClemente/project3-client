@@ -1,0 +1,19 @@
+.test{
+    color: rgb(237,119,113);
+    
+}
+
+.contact-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 40px;
+    
+}
+
+.create-first-img{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
