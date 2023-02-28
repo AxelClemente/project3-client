@@ -4,11 +4,8 @@ import { Link } from 'react-router-dom'
 import React from 'react'
 import "./sidebar.css"
 import { AuthContext } from "../../context/auth.context";
-
 export default function Sidebar() {
-
     const { isLoggedIn, logOutUser } = useContext(AuthContext);
-
   return (
     <div className='sidebar'>
       <div className="sidebarWrapper">
@@ -40,14 +37,12 @@ export default function Sidebar() {
                             Home
                         </li>
                     </Link>
-
                     <Link to="/strolls" className="link">
                         <li className="sidebarListItem active">
                             {/* <Storefront className='sidebarIcon'/> */}
                             List Page
                         </li>
                     </Link>
-
                 </ul>          
         </div>
         <div className="sidebarMenu">
@@ -64,7 +59,6 @@ export default function Sidebar() {
                         </li>
                     </Link>
  
-
                 </ul>          
         </div>
         <div className="sidebarMenu">
@@ -78,7 +72,6 @@ export default function Sidebar() {
                         {/* <Timeline className='sidebarIcon'/> */}
                         Contact
                     </li>
-
                 </ul>          
         </div>
       </div>

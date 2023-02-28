@@ -4,11 +4,9 @@ import { useState, useEffect, useContext }  from "react";
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import {RiStarLine, RiStarSFill} from 'react-icons/ri';
-
 import { AuthContext } from '../context/auth.context';
 import User from './User';
 const API_URL= process.env.REACT_APP_API_URL || 'http://localhost:5005';
-
 
 const StrollDetails = () => {
     const [strolls, setStrolls] = useState({});
@@ -17,7 +15,6 @@ const StrollDetails = () => {
     const { user } = useContext(AuthContext);
     const [rated, setRated] = useState(false); // display message "Thanks for sharing your rating"
     const [rating, setRating] = useState(0);
-
     const [activeModal, setActiveModal] = useState(null);
     function openModal(modalClick) {
       setActiveModal(modalClick);
@@ -26,7 +23,6 @@ const StrollDetails = () => {
     function closeModal() {
       setActiveModal(null);
     }
-
 
 
 
@@ -43,11 +39,9 @@ const StrollDetails = () => {
         
     },[id]);
     
-
     if(Object.keys(strolls).length===0){
         return <p>Loading...</p>
     }
-
     const renderStars = (rating, strollId) => {
         const stars = [];
       
@@ -145,7 +139,6 @@ const StrollDetails = () => {
       };
       
     
-
   return (
     <div>
             
@@ -158,7 +151,6 @@ const StrollDetails = () => {
                 
                 <h2 class="section__title">{strolls.title.charAt(0).toUpperCase() + strolls.title.slice(1)}</h2>
                 <span class="section__subtitle">Lets Start🚀</span>
-
                 <div className='flex text-customThird cursor-pointer mb-10 ' style={{ justifyContent: 'center', alignItems: 'center' }}>
                     {renderStars(rating, strolls._id)}
                     { rated && 
@@ -166,7 +158,6 @@ const StrollDetails = () => {
                             Thanks for sharing your rating!
                         </p>}
                 </div>
-
                 <div class="qualification__container container">
                     {/* <div class="qualification__tabs">
                         <div class="qualification__button button--flex qualification__active">
@@ -217,7 +208,6 @@ const StrollDetails = () => {
                                         <i className="uil uil-arrow-right button__icon"></i>
                                     </span>
                                 </div>
-
                             </div>
                             
                             <div class="qualification__data">
@@ -260,7 +250,6 @@ const StrollDetails = () => {
                     
         
                                 </div>
-
                                 <div class="qualification__data">
                                 <div className="services__content">
                                     <h3 class="qualification__title">{strolls.stops5}</h3>
@@ -279,7 +268,6 @@ const StrollDetails = () => {
                                     <span class="qualification__line"style={{backgroundColor: 'rgb(237,119,113)'}}></span>
                                 </div>
                             </div>
-
                             <div class="qualification__data">
                                     <div></div>
                                     <div>
@@ -304,22 +292,18 @@ const StrollDetails = () => {
                     
         
                             </div>
-
                             
                         </div>
                         
                     </div>
                 </div>
-
                 
-
                 <div>
                     <div>
                         <div className={activeModal === 0 ? "services__modal active-modal" : "services__modal"}>
                             <div className="services__modal-content">
                                 <h4 className="services__modal-title">{strolls.stops1}</h4>
                                 <i className="uil uil-times services__modal-close" onClick={closeModal}></i>
-
                                 <ul className="services__modal-services grid">
                                     <li className="services__modal-service">
                                         <i className="uil uil-check-circle services__modal-icon"></i>
@@ -330,17 +314,14 @@ const StrollDetails = () => {
                                         <img src={strolls.description1} alt="" />
                                     </li>
                                 </ul>
-
                             </div>
                         </div>
                     </div>
                     <div>
-
                         <div className={activeModal === 1 ? "services__modal active-modal" : "services__modal"}>
                             <div className="services__modal-content">
                                 <h4 className="services__modal-title">Axel Test</h4>
                                 <i className="uil uil-times services__modal-close" onClick={closeModal}></i>
-
                                 <ul className="services__modal-services grid">
                                     <li className="services__modal-service">
                                         <i className="uil uil-check-circle services__modal-icon"></i>
@@ -359,17 +340,14 @@ const StrollDetails = () => {
                                         <p>Test4</p>
                                     </li>
                                 </ul>
-
                             </div>
                         </div>
                     </div>
                     <div>
-
                         <div className={activeModal === 2 ? "services__modal active-modal" : "services__modal"}>
                             <div className="services__modal-content">
                                 <h4 className="services__modal-title">Lia Test</h4>
                                 <i className="uil uil-times services__modal-close" onClick={closeModal}></i>
-
                                 <ul className="services__modal-services grid">
                                     <li className="services__modal-service">
                                         <i className="uil uil-check-circle services__modal-icon"></i>
@@ -388,17 +366,14 @@ const StrollDetails = () => {
                                         <p> Lia Test4</p>
                                     </li>
                                 </ul>
-
                             </div>
                         </div>
                     </div>
                     <div>
-
                         <div className={activeModal === 3 ? "services__modal active-modal" : "services__modal"}>
                             <div className="services__modal-content">
                                 <h4 className="services__modal-title">Coco Test</h4>
                                 <i className="uil uil-times services__modal-close" onClick={closeModal}></i>
-
                                 <ul className="services__modal-services grid">
                                     <li className="services__modal-service">
                                         <i className="uil uil-check-circle services__modal-icon"></i>
@@ -417,17 +392,14 @@ const StrollDetails = () => {
                                         <p>Test4</p>
                                     </li>
                                 </ul>
-
                             </div>
                         </div>
                     </div>
                     <div>
-
                         <div className={activeModal === 4 ? "services__modal active-modal" : "services__modal"}>
                             <div className="services__modal-content">
                                 <h4 className="services__modal-title">Luchi Test</h4>
                                 <i className="uil uil-times services__modal-close" onClick={closeModal}></i>
-
                                 <ul className="services__modal-services grid">
                                     <li className="services__modal-service">
                                         <i className="uil uil-check-circle services__modal-icon"></i>
@@ -446,17 +418,14 @@ const StrollDetails = () => {
                                         <p>Test4</p>
                                     </li>
                                 </ul>
-
                             </div>
                         </div>
                     </div>
                     <div>
-
                         <div className={activeModal === 5 ? "services__modal active-modal" : "services__modal"}>
                             <div className="services__modal-content">
                                 <h4 className="services__modal-title">Mambo Test</h4>
                                 <i className="uil uil-times services__modal-close" onClick={closeModal}></i>
-
                                 <ul className="services__modal-services grid">
                                     <li className="services__modal-service">
                                         <i className="uil uil-check-circle services__modal-icon"></i>
@@ -475,17 +444,14 @@ const StrollDetails = () => {
                                         <p>Test4</p>
                                     </li>
                                 </ul>
-
                             </div>
                         </div>
                     </div>
                     
-
                     
                 </div>
                 
             </section>
-
             
             
             
@@ -493,5 +459,5 @@ const StrollDetails = () => {
     </div>
   )
 }
-
 export default StrollDetails
+

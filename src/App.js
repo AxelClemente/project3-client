@@ -1,7 +1,6 @@
 //Spinner
 import Spinner from "./components/Spinner/Spinner";
 import { useState, useEffect } from "react";
-
 import "./App.scss";
 import { Routes, Route, useLocation } from "react-router-dom";
 import Landing from "./components/Landing/Landing";
@@ -9,7 +8,6 @@ import Header from "./components/Header/Header";
 // import Navbar from "./components/Navbar/Navbar";
 import css from "./styles/app.module.scss";
 /* eslint-disable no-unused-vars */
-
 //Pages
 import Home from "./pages/Home";
 import StrollDetails from "./pages/StrollDetails";
@@ -22,7 +20,6 @@ import Create from "./pages/Create";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import City from "./components/City/City";
 import StrollEdit from "./pages/StrollEdit";
-
 function App() {
   /* eslint-disable no-unused-vars */
   const location = useLocation();
@@ -33,7 +30,6 @@ function App() {
       setIsLoading(false);
     }, 3000);
   }, []);
-
   if (isLoading) {
     return <Spinner />;
   } else {
@@ -58,5 +54,5 @@ function App() {
     );
   }
 }
-
 export default App;
+

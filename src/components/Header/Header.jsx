@@ -1,5 +1,4 @@
 //********* TRANSPARENT HEADER ON SCROLL */
-
 // import { useContext } from "react";
 // import css from "./Header.module.scss";
 // import { motion } from "framer-motion";
@@ -11,19 +10,16 @@
 // import useOutsideAlerter from "../../hooks/useOutsideAlerter";
 // import { Link, useLocation } from "react-router-dom";
 // import { AuthContext } from "../../context/auth.context";
-
 // const Header = () => {
 //   const [menuOpened, setMenuOpened] = useState(false);
 //   const headerShadow = useHeaderShadow();
 //   const menuRef = useRef();
 //   const { isLoggedIn, logOutUser } = useContext(AuthContext);
 //   const { pathname } = useLocation();
-
 //   useOutsideAlerter({
 //     menuRef,
 //     setMenuOpened,
 //   });
-
 //   return (
 //     <motion.div
 //       initial="hidden"
@@ -53,24 +49,20 @@
 //               <span className='text-customPrimary'>Home</span>
 //             </a>
 //           )}
-
 //           {isLoggedIn && (
 //             <>
 //               <Link to={"/"}>
 //                 {" "}
 //                 <button>Home</button>{" "}
 //               </Link>
-
 //               <Link to={"/users"}>
 //                 {" "}
 //                 <button>Profile</button>{" "}
 //               </Link>
-
 //               <Link to={"/"}>
 //                 {" "}
 //                 <button onClick={logOutUser}>Log out</button>
 //               </Link>
-
 //               <div className='flex items-center gap-6'>
 //                 <Link to={"/users/:id/create"} className='bg-customBlue hover:bg-customSecondary px-4 py-3 rounded-lg transition' style={{ color: 'white' }}>Create</Link>
 //               </div>
@@ -82,7 +74,6 @@
 //                 {" "}
 //                 <button>Home</button>{" "}
 //               </Link> */}
-
 //               <div className='flex items-center gap-6'>
 //                 <Link to={"/login"} className='hover:text-custom transition'>Log In</Link>
 //                 <Link to={"/signup"} className='bg-customPrimary hover:bg-customSecondary px-4 py-3 rounded-lg transition' style={{ color: 'white' }}>Sign up</Link>
@@ -90,7 +81,6 @@
 //             </>
 //           )}
 //         </ul>
-
 //         <div
 //           className={css.menuIcon}
 //           onClick={() => setMenuOpened((prev) => !prev)}
@@ -101,14 +91,11 @@
 //     </motion.div>
 //   );
 // };
-
 // export default Header;
 
 
 
-
 //********* WHITE HEADER ON SCROLL */
-
 import { useContext } from "react";
 import css from "./Header.module.scss";
 import { motion } from "framer-motion";
@@ -120,7 +107,6 @@ import useHeaderShadow from "../../hooks/useHeaderShadow";
 import useOutsideAlerter from "../../hooks/useOutsideAlerter";
 import { Link, useLocation } from "react-router-dom";
 import { AuthContext } from "../../context/auth.context";
-
 const Header = () => {
   const [menuOpened, setMenuOpened] = useState(false);
   const { headerShadow, headerBackground } = useHeaderShadow();
@@ -204,5 +190,6 @@ const Header = () => {
   );
 };
 export default Header;
+
 
 

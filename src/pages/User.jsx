@@ -4,9 +4,7 @@ import { AuthContext } from '../context/auth.context';
 import { useState, useContext } from 'react';
 import placeholderProfileImage from '../images/profile.png'
 import axios from 'axios';
-
 const API_URL= process.env.REACT_APP_API_URL || 'http://localhost:5005';
-
 
 
 
@@ -15,7 +13,6 @@ const API_URL= process.env.REACT_APP_API_URL || 'http://localhost:5005';
 const User = () => {
   const [imageUrl, setImageUrl] = useState("");
   const { isLoggedIn, user, setUser } = useContext(AuthContext);
-
   const handleFileUpload = (e) => {
     // console.log("The file to be uploaded is: ", e.target.files[0]);
  
@@ -35,7 +32,6 @@ const User = () => {
       })
       .catch(err => console.log("Error while uploading the file: ", err));
   };
-
   const handleSubmit = (e) => {
     e.preventDefault();
     const storedToken = localStorage.getItem("authToken");
@@ -49,7 +45,6 @@ const User = () => {
           })
           .catch(err => console.log(err))
   }
-
   return (
    
 <div>
@@ -72,7 +67,6 @@ const User = () => {
   style={{ width: "100px", height: "100px" }}
 />
               <br />
-
               <h2>Update image form</h2>
               <form onSubmit={handleSubmit}>
                 <input
@@ -96,8 +90,6 @@ const User = () => {
     </div>
   )
 }
-
 export default User
-
 
 

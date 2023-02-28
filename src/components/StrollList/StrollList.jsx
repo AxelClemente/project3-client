@@ -10,71 +10,24 @@ import {
 } from "react-icons/ri";
 // import { useParams } from 'react-router-dom';
 import { AuthContext } from "../../context/auth.context";
-import FilterCity from "../Search/FilterCity";
-import FilterCountry from "../Search/FilterCountry";
-
 const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5005";
-
 const StrollList = () => {
   const [strolls, setStrolls] = useState([]);
   const { user } = useContext(AuthContext);
   const [isStrollAdded, setIsStrollAdded] = useState(false);
   const [averageRatings, setAverageRatings] = useState({});
-  const [strollsData, setStrollsData] = useState([]);
-
-  // console.log(strolls);
-
-  // filter by city
-  const filterCityStrollList = (str) => {
-    let filteredStrolls;
-
-    if (str === "All") {
-      filteredStrolls = strollsData;
-
-      setStrolls(filteredStrolls);
-    } else {
-      filteredStrolls = strollsData.filter((stroll) => {
-        return stroll.city[0].toLowerCase() === str.toLowerCase();
-      });
-
-      setStrolls(filteredStrolls);
-    }
-  };
-
-  // filter by country
-  const filterCountryStrollList = (str) => {
-    let filteredStrolls;
-
-
-    if (str === "All") {
-      filteredStrolls = strollsData;
-
-      console.log("filteredStrolls", filteredStrolls);
-      setStrolls(filteredStrolls);
-    } else {
-      filteredStrolls = strollsData.filter((stroll) => {
-        return stroll?.country[0].toLowerCase() === str.toLowerCase();
-      });
-
-      console.log("filteredStrolls", filteredStrolls);
-      setStrolls(filteredStrolls);
-    }
-  };
-
-  console.log("the user is:", user);
+  // console.log("the user is:",user)
   useEffect(() => {
     axios
       .get(`${API_URL}/strolls`)
       .then((response) => {
         // console.log('response.data', response.data)
         setStrolls(response.data);
-        setStrollsData(response.data);
       })
       .catch((error) => {
         console.error(error);
       });
   }, []);
-
   const handleFavoritesClick = (strollId) => {
     axios
       .post(`${API_URL}/api/${user._id}`, {
@@ -102,7 +55,6 @@ const StrollList = () => {
         console.error(error);
       });
   };
-
   const getAverageRating = (strollId) => {
     axios
       .get(`${API_URL}/rating/strolls/${strollId}/rating`)
@@ -117,7 +69,6 @@ const StrollList = () => {
         console.error(error);
       });
   };
-
   useEffect(() => {
     strolls.forEach((stroll) => {
       if (!averageRatings[stroll._id]) {
@@ -125,14 +76,11 @@ const StrollList = () => {
       }
     });
   }, [strolls]);
-
   return (
     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-      <h1>filters</h1>
-      <FilterCountry filterCountryStrollList={filterCountryStrollList} />
-      <FilterCity filterCityStrollList={filterCityStrollList} />
-
       {strolls.map((stroll) => {
+        
+        
         return (
           
           <div
@@ -153,10 +101,6 @@ const StrollList = () => {
                 }}
               >
                 <span className="bg-customPrimary rounded-full text-white px-3">
-                  {stroll.country}
-                </span>
-
-                <span className="bg-customPrimary rounded-full text-white px-3">
                   {stroll.city.charAt(0).toUpperCase() + stroll.city.slice(1)}
                 </span>
                 <div className="flex gap-x-2" style={{ alignItems: "center" }}>
@@ -168,7 +112,6 @@ const StrollList = () => {
                   </p>
                   
                 </div>
-
               </div>
               <div className="flex gap-x-6">
                 <div className="flex items-center">
@@ -212,5 +155,4 @@ const StrollList = () => {
     </div>
   );
 };
-
 export default StrollList;

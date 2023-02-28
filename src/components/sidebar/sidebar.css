@@ -8,27 +8,21 @@
     box-shadow: 0px 0px 15px 0px rgba(2, 1, 1, 0.07);
     border-radius: 5px; */
 }
-
 .sidebarWrapper{
     padding: 20px;
     color: #555;
-
 }
-
 .sidebarMenu{
     margin-bottom: 10px;
 }
-
 .sidebarTitle{
     font-size: 13px;
     color: rgb(237,119,113);
 }
-
 .sidebarList{
     list-style: none;
     padding: 5px;
 }
-
 .sidebarListItem{
     cursor: pointer;
     padding: 5px;
@@ -36,16 +30,13 @@
     align-items: center;
     border-radius: 10px;
 }
-
 .sidebarListItem.active.sidebarListItem:hover { 
     background-color: rgb(221, 218, 218);
 }
-
 .sidebarIcon{
     margin-right: 5px;
     font-size: 20px !important; /* Para cambiar el tamaño de los material/icons se debe colocar !important */
 }
-
 .link{
     text-decoration: none;
     color: inherit;

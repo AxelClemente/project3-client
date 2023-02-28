@@ -10,13 +10,10 @@ import {
   RiDeleteBinLine,
   RiDeleteBin7Line
 } from "react-icons/ri";
-
 const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5005';
-
 const UserStroll = () => {
   const [strolls, setStrolls] = useState([]);
   const { isLoggedIn, user, setUser } = useContext(AuthContext);
-
 
   const removeStrollFavorites = (strollId) => {
     const storedToken = localStorage.getItem('authToken');
@@ -28,7 +25,6 @@ const UserStroll = () => {
     })
     .catch(err => console.log(err));
   }
-
   //Fetch the favorites strolls of the loggedIn user - return the list property of the User model.
   useEffect(() => {
     if (isLoggedIn) {
@@ -43,7 +39,6 @@ const UserStroll = () => {
       .catch(err => console.log(err));
     }
   }, [isLoggedIn, user, setUser]);
-
   return (
     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
       {strolls.map((stroll) => {
@@ -57,7 +52,6 @@ const UserStroll = () => {
             <Link to={`/strolls/${stroll._id}`}>
               <img className="mb-8" src={stroll.img1} alt="img" />
             </Link>
-
             <div className="mb-4">
               <div
                 className="text-sm mb-8 flex"
@@ -111,6 +105,5 @@ const UserStroll = () => {
     </div>
   );
 };
-
 export default UserStroll;
 

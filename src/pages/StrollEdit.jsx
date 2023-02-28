@@ -6,13 +6,10 @@ import "../styles/create.css";
 import {
   RiEdit2Line
 } from "react-icons/ri";
-
 const API_URL= process.env.REACT_APP_API_URL || 'http://localhost:5005';
-
 const StrollEdit = () => {
   const { id } = useParams(); // Get the ID from the URL
   const { user, setUser } = useContext(AuthContext);
-
   const [stroll, setStroll] = useState({
     title: "",
     country: "",
@@ -42,26 +39,19 @@ const StrollEdit = () => {
     guide: "",
   });
   
-
   const [errorMessage, setErrorMessage] = useState(null);
-
   const navigate = useNavigate();
-
   const handleChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
-
     setStroll({ ...stroll, [name]: value });
   };
-
   const handleSubmit = (e) => {
     e.preventDefault();
     const userId = user._id;
-
     // Add userId to the stroll object
     const updatedStroll = { ...stroll, userId: userId };
     console.log("Esta es la stroll actualizada!!!!!",updatedStroll);
-
     axios.put(`${API_URL}/strolls/${id}`, updatedStroll) // Pass the ID to the URL
     .then((response) => {
       console.log("Response from server:", response);
@@ -85,9 +75,7 @@ const StrollEdit = () => {
   
     return (
         <div>
-
     <section class="contact section" id="contactme">
-
             <div class="contact-form">
                 <h2 className='primaryText'>Let's<span className='text-customSecondary'> edit!</span></h2>
                 <div className="flex items-center">
@@ -97,9 +85,7 @@ const StrollEdit = () => {
        
         <div class="contact__container container grid">
 
-
             <form onSubmit={handleSubmit} class="contact__form grid">
-
                 <div class="contact__inputs grid">
                     <div class="contact__content">
                         <label for="" class="contact__label">Country</label>
@@ -148,7 +134,6 @@ const StrollEdit = () => {
                         <input type="text" name="guide" value={stroll.guide} onChange={handleChange} class="contact__input" placeholder='e.g. "Available / No"'></input>
                     </div>
                 </div>
-
               <div class="create-first-img">
                     <img                   
                     src="/images/1.png" alt="" width="810" />
@@ -310,7 +295,6 @@ const StrollEdit = () => {
                <div>
                     <button type="submit" class="button button--flex">Update</button>
                </div>       
-
             </form>
         </div>
     </section>
