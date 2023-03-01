@@ -327,7 +327,7 @@ const StrollEdit = () => {
         .get(`${API_URL}/strolls/${id}`)
         .then((response) => {
           const data = response.data
-          console.log('response.data', data)
+        //   console.log('response.data', data)
           setStrolls(data);
         })
         .catch((error) => {
@@ -339,12 +339,13 @@ const StrollEdit = () => {
     
     // set values of form fields based on data in strolls state
     useEffect(() => {
-      if (Object.keys(strolls).length > 0) {
-        setStroll(strolls);
-      }
-    }, [strolls]);
+        if (Object.keys(strolls).length > 0) {
+          const { img1, ...strollWithoutImg1 } = strolls;
+          setStroll(strollWithoutImg1);
+        }
+      }, [strolls]);
   
-    console.log("checking: ",strolls)
+    // console.log("checking: ",strolls)
   
     const [errorMessage, setErrorMessage] = useState(null);
     const navigate = useNavigate();
@@ -360,18 +361,18 @@ const StrollEdit = () => {
       const userId = user._id;
       // Add userId to the stroll object
       const updatedStroll = { ...stroll, userId: userId };
-      console.log("Esta es la stroll actualizada!!!!!",updatedStroll);
+    //   console.log("Esta es la stroll actualizada!!!!!",updatedStroll);
 
       axios.put(`${API_URL}/strolls/${id}`, updatedStroll) // Pass the ID to the URL
       .then((response) => {
-        console.log("Response from server:", response);
+        // console.log("Response from server:", response);
         // Update the user context with the new `strollId`
         setUser({
           ...user,
           stroll: [...user.stroll, response.data._id]
         });
         // Navigate to the user profile page
-        console.log("User strolls after updateeeeeeeeeeeeeeeeeeeeeeeee:", user.stroll);
+        // console.log("User strolls after updateeeeeeeeeeeeeeeeeeeeeeeee:", user.stroll);
         navigate("/strolls");
       })
       .catch((err) => {
@@ -380,6 +381,7 @@ const StrollEdit = () => {
         setErrorMessage(errorDescription);
       });
     };
+
     
   
     return (
@@ -388,7 +390,7 @@ const StrollEdit = () => {
             <div class="contact-form">
                 <h2 className='primaryText'>Let's<span className='text-customSecondary'> edit!</span></h2>
                 <div className="flex items-center">
-                    <p>hola</p><RiEdit2Line style={{ fontSize: '2rem' }} />
+                    <p className='text-customPrimary'>{stroll.title}</p><RiEdit2Line style={{ fontSize: '2rem' }} />
                 </div>
             </div>
        
