@@ -438,7 +438,7 @@ const StrollList = () => {
         getAverageRating(stroll._id);
       }
     });
-  }, [strolls]);
+  }, [strolls,averageRatings]);
 
   return (
     <div>

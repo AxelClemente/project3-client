@@ -113,7 +113,7 @@ const Header = () => {
   const menuRef = useRef();
   const { isLoggedIn, logOutUser } = useContext(AuthContext);
   const { pathname } = useLocation();
-  const { boxShadow } = useHeaderShadow();
+  
   useOutsideAlerter({
     menuRef,
     setMenuOpened,
