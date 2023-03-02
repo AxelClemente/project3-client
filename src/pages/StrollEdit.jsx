@@ -3,74 +3,78 @@
 // import { useNavigate, useParams } from "react-router-dom";
 // import { AuthContext } from '../context/auth.context';
 // import "../styles/create.css";
-// import {
-//   RiEdit2Line
-// } from "react-icons/ri";
+// import {RiEdit2Line} from "react-icons/ri";
+
+
 // const API_URL= process.env.REACT_APP_API_URL || 'http://localhost:5005';
+
+
+
 // const StrollEdit = () => {
-//   const { id } = useParams(); // Get the ID from the URL
-//   const { user, setUser } = useContext(AuthContext);
-//   const [stroll, setStroll] = useState({
-//     title: "",
-//     country: "",
-//     city: "",
-//     description: "",
-//     description1: "",
-//     description2: "",
-//     description3: "",
-//     description4: "",
-//     description5: "",
-//     description6: "",
-//     duration: "",
-//     stops1: "",
-//     stops2: "",
-//     stops3: "",
-//     stops4: "",
-//     stops5: "",
-//     stops6: "",
-//     img1: "",
-//     img2: "",
-//     img3: "",
-//     img4: "",
-//     img5: "",
-//     img6: "",
-//     budget: "",
-//     distance: "",
-//     guide: "",
-//   });
+//     const [strolls, setStrolls] = useState({});
+//     const { id } = useParams(); // Get the ID from the URL
+//     const { user, setUser } = useContext(AuthContext);
   
-//   const [errorMessage, setErrorMessage] = useState(null);
-//   const navigate = useNavigate();
-//   const handleChange = (e) => {
-//     const name = e.target.name;
-//     const value = e.target.value;
-//     setStroll({ ...stroll, [name]: value });
-//   };
-//   const handleSubmit = (e) => {
-//     e.preventDefault();
-//     const userId = user._id;
-//     // Add userId to the stroll object
-//     const updatedStroll = { ...stroll, userId: userId };
-//     console.log("Esta es la stroll actualizada!!!!!",updatedStroll);
-//     axios.put(`${API_URL}/strolls/${id}`, updatedStroll) // Pass the ID to the URL
-//     .then((response) => {
-//       console.log("Response from server:", response);
-//       // Update the user context with the new `strollId`
-//       setUser({
-//         ...user,
-//         stroll: [...user.stroll, response.data._id]
+//     useEffect(() => {
+//       axios
+//         .get(`${API_URL}/strolls/${id}`)
+//         .then((response) => {
+//           const data = response.data
+//         //   console.log('response.data', data)
+//           setStrolls(data);
+//         })
+//         .catch((error) => {
+//           console.error(error);
+//         });
+//     }, [id]); 
+  
+//     const [stroll, setStroll] = useState({}); // initialize with empty object
+    
+//     // set values of form fields based on data in strolls state
+//     useEffect(() => {
+//         if (Object.keys(strolls).length > 0) {
+//           const { img1, ...strollWithoutImg1 } = strolls;
+//           setStroll(strollWithoutImg1);
+//         }
+//       }, [strolls]);
+  
+//     // console.log("checking: ",strolls)
+  
+//     const [errorMessage, setErrorMessage] = useState(null);
+//     const navigate = useNavigate();
+//     const handleChange = (e) => {
+//       const name = e.target.name;
+//       const value = e.target.value;
+//       setStroll({ ...stroll, [name]: value });
+//     };
+
+
+//     const handleSubmit = (e) => {
+//       e.preventDefault();
+//       const userId = user._id;
+//       // Add userId to the stroll object
+//       const updatedStroll = { ...stroll, userId: userId };
+//     //   console.log("Esta es la stroll actualizada!!!!!",updatedStroll);
+
+//       axios.put(`${API_URL}/strolls/${id}`, updatedStroll) // Pass the ID to the URL
+//       .then((response) => {
+//         // console.log("Response from server:", response);
+//         // Update the user context with the new `strollId`
+//         setUser({
+//           ...user,
+//           stroll: [...user.stroll, response.data._id]
+//         });
+//         // Navigate to the user profile page
+//         // console.log("User strolls after updateeeeeeeeeeeeeeeeeeeeeeeee:", user.stroll);
+//         navigate("/strolls");
+//       })
+//       .catch((err) => {
+//         console.error(err);
+//         const errorDescription = err.response.data.message;
+//         setErrorMessage(errorDescription);
 //       });
-//       // Navigate to the user profile page
-//       console.log("User strolls after update:", user.stroll);
-//       navigate("/strolls");
-//     })
-//     .catch((err) => {
-//       console.error(err);
-//       const errorDescription = err.response.data.message;
-//       setErrorMessage(errorDescription);
-//     });
-  
-//   };
+//     };
+
     
   
 //     return (
@@ -79,7 +83,7 @@
 //             <div class="contact-form">
 //                 <h2 className='primaryText'>Let's<span className='text-customSecondary'> edit!</span></h2>
 //                 <div className="flex items-center">
-//                     <p>hola</p><RiEdit2Line style={{ fontSize: '2rem' }} />
+//                     <p className='text-customPrimary'>{stroll.title}</p><RiEdit2Line style={{ fontSize: '2rem' }} />
 //                 </div>
 //             </div>
        
@@ -304,13 +308,16 @@
   
 //   export default StrollEdit;
 
-////////////////////////////////////////// TESTING
+  ////////////////////////////////////////// TESTING
+
 import { useState, useContext, useEffect  } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { AuthContext } from '../context/auth.context';
 import "../styles/create.css";
 import {RiEdit2Line} from "react-icons/ri";
+import { Link } from "react-router-dom";
+
 
 
 const API_URL= process.env.REACT_APP_API_URL || 'http://localhost:5005';
@@ -339,11 +346,11 @@ const StrollEdit = () => {
     
     // set values of form fields based on data in strolls state
     useEffect(() => {
-        if (Object.keys(strolls).length > 0) {
-          const { img1, ...strollWithoutImg1 } = strolls;
-          setStroll(strollWithoutImg1);
-        }
-      }, [strolls]);
+      if (Object.keys(strolls).length > 0) {
+        const { img1, img2, img3, img4, img5, img6, ...strollWithoutImages } = strolls;
+        setStroll(strollWithoutImages);
+      }
+    }, [strolls]);
   
     // console.log("checking: ",strolls)
   
@@ -603,7 +610,7 @@ const StrollEdit = () => {
                     />
                     </div>
               </div>
-               <div>
+               <div> 
                     <button type="submit" class="button button--flex">Update</button>
                </div>       
             </form>
@@ -614,3 +621,4 @@ const StrollEdit = () => {
   };
   
   export default StrollEdit;
+

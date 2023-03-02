@@ -3,9 +3,11 @@ import '../pages/style.css'
 import { useState, useEffect, useContext }  from "react";
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-import {RiStarLine, RiStarSFill} from 'react-icons/ri';
+import {RiStarLine, RiStarSFill, RiWalkFill, RiTimerLine, RiUserHeartLine} from 'react-icons/ri';
 import { AuthContext } from '../context/auth.context';
+
 import User from './User';
+import { margin } from '@mui/system';
 const API_URL= process.env.REACT_APP_API_URL || 'http://localhost:5005';
 
 const StrollDetails = () => {
@@ -145,11 +147,39 @@ const StrollDetails = () => {
             
             <section class="qualification section">
                 <div class="section__title">
-                    <img src={user.profilePicture}  style={{ width: "100px", height: "100px" }} alt="" />
-                    <p>Hosted by {user.username}</p>
+                    <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+                        <img src={user.profilePicture} style={{ width: "100px", height: "100px", borderRadius: "50%", objectFit: "cover" }} alt="" />
+                    </div>
+                    <p className='primaryText'>Created by <span className='text-customPrimary'>{user.username}</span></p>
+                </div>
+
+                <h2 class="section__title" style={{ marginTop: "3rem", marginBottom: "2rem" }}>{strolls.title.charAt(0).toUpperCase() + strolls.title.slice(1)}</h2>
+                <div className="flex gap-x-6 justify-center">
+                    <div className="flex items-center">
+                    <RiTimerLine className="dropdown-icon-customYellow" />
+                    <span className="bg-customSecondary rounded-full text-black px-3">
+                        {strolls.duration}hr
+                    </span>
+                    </div>
+                    <div className="flex items-center">
+                    <RiWalkFill className="dropdown-icon-customPurple" />
+                    <span className="bg-customPurple rounded-full text-white px-3">
+                        {strolls.distance}km
+                    </span>
+                    </div>
+                    <div className="flex items-center">
+                    <RiUserHeartLine className="dropdown-icon-customFour" />
+                    <span className="bg-green-500 rounded-full text-white px-3">
+                        {strolls.guide}
+                    </span>
+                    </div>
+                </div>
+                <div style={{ display: "flex", justifyContent: "center", alignItems: "center", marginTop:"50px" }}>
+                    <img className="mb-8" src={strolls.img4} style={{ width: "500px", height: "400px", borderRadius: "0 0 0 5%",}} alt="img" />
+                    <img className="mb-8" src={strolls.img1} style={{ width: "500px", height: "400px"}} alt="img" />
+                    <img className="mb-8" src={strolls.img3} style={{ width: "500px", height: "400px", borderRadius: "0 0 5% 0",}} alt="img" />
                 </div>
                 
-                <h2 class="section__title">{strolls.title.charAt(0).toUpperCase() + strolls.title.slice(1)}</h2>
                 <span class="section__subtitle">Lets Start🚀</span>
                 <div className='flex text-customThird cursor-pointer mb-10 ' style={{ justifyContent: 'center', alignItems: 'center' }}>
                     {renderStars(rating, strolls._id)}

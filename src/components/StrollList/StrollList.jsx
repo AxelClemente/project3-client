@@ -89,7 +89,7 @@ const StrollList = () => {
             className="bg-white shadow-1 p-5  hover:shadow-2 transition"
           >
             <Link to={`/strolls/${stroll._id}`}>
-              <img className="mb-8" src={stroll.img1} alt="img" />
+              <img className="mb-8" src={stroll.img1} style={{ width: "800px", height: "400px"}} alt="img" />
             </Link>
             
             <div className="mb-4">
