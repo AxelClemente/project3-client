@@ -158,10 +158,11 @@ const handleSubmit = (e) => {
               </div>
               <div class="contact__input grid">
                     <div class="contact__content">
-                    <label for="image-upload"></label>
+                    <label for="image-upload"></label># 1 Picture
                     <input class="contact__input"
                     
                       type="text"
+                      placeholder='e.g. "Please copy relative path"'
                       name="img1"
                       value={stroll.img1}
                       onChange={handleChange}
@@ -183,10 +184,11 @@ const handleSubmit = (e) => {
               </div>
               <div class="contact__input grid">
                     <div class="contact__content">
-                    <label for="image-upload"></label>
+                    <label for="image-upload"></label># 2 Picture
                     <input class="contact__input"
                     
-                      type="file"
+                      type="text"
+                      placeholder='e.g. "Please copy relative path"'
                       name="img2"
                       value={stroll.img2}
                       onChange={handleChange}
@@ -208,10 +210,11 @@ const handleSubmit = (e) => {
               </div>
               <div class="contact__input grid">
                     <div class="contact__content">
-                    <label for="image-upload"></label>
+                    <label for="image-upload"></label># 3 Picture
                     <input class="contact__input"
                     
-                      type="file"
+                      type="text"
+                      placeholder='e.g. "Please copy relative path"'
                       name="img3"
                       value={stroll.img3}
                       onChange={handleChange}
@@ -233,10 +236,11 @@ const handleSubmit = (e) => {
               </div>
               <div class="contact__input grid">
                     <div class="contact__content">
-                    <label for="image-upload"></label>
+                    <label for="image-upload"></label># 4 Picture
                     <input class="contact__input"
                     
-                      type="file"
+                      type="text"
+                      placeholder='e.g. "Please copy relative path"'
                       name="img4"
                       value={stroll.img4}
                       onChange={handleChange}
@@ -258,10 +262,11 @@ const handleSubmit = (e) => {
               </div>
               <div class="contact__input grid">
                     <div class="contact__content">
-                    <label for="image-upload"></label>
+                    <label for="image-upload"></label># 5 Picture
                     <input class="contact__input"
                     
-                      type="file"
+                      type="text"
+                      placeholder='e.g. "Please copy relative path"'
                       name="img5"
                       value={stroll.img5}
                       onChange={handleChange}
@@ -283,10 +288,11 @@ const handleSubmit = (e) => {
               </div>
               <div class="contact__input grid">
                     <div class="contact__content">
-                    <label for="image-upload"></label>
+                    <label for="image-upload"></label># 6 Picture
                     <input class="contact__input"
                     
-                      type="file"
+                      type="text"
+                      placeholder='e.g. "Please copy relative path"'
                       name="img6"
                       value={stroll.img6}
                       onChange={handleChange}
