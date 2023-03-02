@@ -6,6 +6,7 @@ import "./sidebar.css"
 import { AuthContext } from "../../context/auth.context";
 export default function Sidebar() {
     const { isLoggedIn, logOutUser } = useContext(AuthContext);
+    console.log(isLoggedIn);
   return (
     <div className='sidebar'>
       <div className="sidebarWrapper">

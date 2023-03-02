@@ -15,6 +15,7 @@ const SignUpPage = () => {
   });
 
   const [errorMessage, setErrorMessage] = useState(null);
+  console.log(errorMessage)
 
   const navigate = useNavigate();
 

@@ -1,7 +1,5 @@
 // import { ArrowDownwardOutlined, ArrowUpwardOutlined } from "@material-ui/icons"
 import User from "../../pages/User"
-import StrollCreated from "../StrollCreated/StrollCreated"
-import UserStroll from "../UserStroll/UserStroll"
 import "./featuredInfo.css"
 
 export default function FeaturedInfo() {

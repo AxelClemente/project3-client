@@ -9,10 +9,10 @@ import {
   RiStarSFill,
   RiDeleteBin7Line,
   RiPencilLine,
-  RiEdit2Line
+  
 } from "react-icons/ri";
 import { AuthContext } from "../../context/auth.context";
-import StrollEdit from "../../pages/StrollEdit";
+
 const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5005";
 const StrollCreated = () => {
   const [strolls, setStrolls] = useState([]);

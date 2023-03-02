@@ -1,5 +1,5 @@
 
-import { CiCloudOn, CiBrightnessUp} from "react-icons/ci";
+import {CiBrightnessUp} from "react-icons/ci";
 
 export const plans = [
 

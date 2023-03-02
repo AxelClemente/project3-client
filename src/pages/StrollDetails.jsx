@@ -7,8 +7,6 @@ import axios from 'axios';
 import {RiStarLine, RiStarSFill, RiWalkFill, RiTimerLine, RiUserHeartLine} from 'react-icons/ri';
 import { AuthContext } from '../context/auth.context';
 
-import User from './User';
-import { margin } from '@mui/system';
 const API_URL= process.env.REACT_APP_API_URL || 'http://localhost:5005';
 
 const StrollDetails = () => {

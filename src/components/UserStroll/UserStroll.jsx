@@ -7,7 +7,6 @@ import {
   RiTimerLine,
   RiWalkFill,
   RiStarSFill,
-  RiDeleteBinLine,
   RiDeleteBin7Line
 } from "react-icons/ri";
 const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5005';
