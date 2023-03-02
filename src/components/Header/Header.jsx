@@ -33,7 +33,7 @@
 //         <Link to="/strolls">
 //           <img src="images/Stroll2.png" alt="logo" width="100" height="100"/>
 //         </Link>
-      
+
 //         <ul
 //           ref={menuRef}
 //           style={getMenuStyles(menuOpened)}
@@ -93,8 +93,6 @@
 // };
 // export default Header;
 
-
-
 //********* WHITE HEADER ON SCROLL */
 import { useContext } from "react";
 import css from "./Header.module.scss";
@@ -107,6 +105,8 @@ import useHeaderShadow from "../../hooks/useHeaderShadow";
 import useOutsideAlerter from "../../hooks/useOutsideAlerter";
 import { Link, useLocation } from "react-router-dom";
 import { AuthContext } from "../../context/auth.context";
+import logoCityStroll from "../../images/Logo CityStrollPNG.png";
+
 const Header = () => {
   const [menuOpened, setMenuOpened] = useState(false);
   const { headerShadow, headerBackground } = useHeaderShadow();
@@ -129,22 +129,22 @@ const Header = () => {
     >
       <div className={`flexCenter mb-4 innerWidth ${css.container}`}>
         <Link to="/strolls">
-          <img src="images/Stroll.png" alt="logo" width="100" height="100"/>
+          <img src={logoCityStroll} alt="logo" width="120" height="auto" />
         </Link>
-      
+
         <ul
           ref={menuRef}
           style={getMenuStyles(menuOpened)}
           className={`flexCenter ${css.menu}`}
         >
-          {pathname === '/' && (
+          {pathname === "/" && (
             <a href="/strolls">
-              <span className='text-customPrimary'>Enter App</span>
+              <span className="text-customPrimary">Enter App</span>
             </a>
           )}
-          {pathname === '/stroll' && (
+          {pathname === "/stroll" && (
             <a href="/">
-              <span className='text-customPrimary'>Home</span>
+              <span className="text-customPrimary">Home</span>
             </a>
           )}
           {isLoggedIn && (
@@ -161,8 +161,14 @@ const Header = () => {
                 {" "}
                 <button onClick={logOutUser}>Log out</button>
               </Link>
-              <div className='flex items-center gap-6'>
-                <Link to={"/users/:id/create"} className='bg-customPurple hover:bg-customSecondary px-4 py-3 rounded-lg transition' style={{ color: 'white' }}>Create</Link>
+              <div className="flex items-center gap-6">
+                <Link
+                  to={"/users/:id/create"}
+                  className="bg-customPurple hover:bg-customSecondary px-4 py-3 rounded-lg transition"
+                  style={{ color: "white" }}
+                >
+                  Create
+                </Link>
               </div>
             </>
           )}
@@ -172,9 +178,17 @@ const Header = () => {
                 {" "}
                 <button>Home</button>{" "}
               </Link>
-              <div className='flex items-center gap-6'>
-                <Link to={"/login"} className='hover:text-custom transition'>Log In</Link>
-                <Link to={"/signup"} className='bg-customPrimary hover:bg-customSecondary px-4 py-3 rounded-lg transition' style={{ color: 'white' }}>Sign up</Link>
+              <div className="flex items-center gap-6">
+                <Link to={"/login"} className="hover:text-custom transition">
+                  Log In
+                </Link>
+                <Link
+                  to={"/signup"}
+                  className="bg-customPrimary hover:bg-customSecondary px-4 py-3 rounded-lg transition"
+                  style={{ color: "white" }}
+                >
+                  Sign up
+                </Link>
               </div>
             </>
           )}
