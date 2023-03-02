@@ -1,3 +1,4 @@
+// test axel 
 import React from 'react'
 import '../pages/style.css'
 import { useState, useEffect, useContext }  from "react";
@@ -175,9 +176,9 @@ const StrollDetails = () => {
                     </div>
                 </div>
                 <div style={{ display: "flex", justifyContent: "center", alignItems: "center", marginTop:"50px" }}>
-                    <img className="mb-8" src={strolls.img4} style={{ width: "500px", height: "400px", borderRadius: "0 0 0 5%",}} alt="img" />
-                    <img className="mb-8" src={strolls.img1} style={{ width: "500px", height: "400px"}} alt="img" />
-                    <img className="mb-8" src={strolls.img3} style={{ width: "500px", height: "400px", borderRadius: "0 0 5% 0",}} alt="img" />
+                    <img className="mb-8" src={strolls.img5} style={{ width: "500px", height: "400px", borderRadius: "0 0 0 5%",}} alt="img" />
+                    <img className="mb-8" src={strolls.img6} style={{ width: "500px", height: "400px"}} alt="img" />
+                    <img className="mb-8" src={strolls.img1} style={{ width: "500px", height: "400px", borderRadius: "0 0 5% 0",}} alt="img" />
                 </div>
                 
                 <span class="section__subtitle">Lets Start🚀</span>
@@ -202,11 +203,12 @@ const StrollDetails = () => {
                             
                             <div class="qualification__data">
                                 <div className="services__content">
-                                <h3 class="qualification__title " onClick={() => openModal(0)}> <span> <a href="https://goo.gl/maps/5ZvWXCvVk6TrEL499" target="_blank" rel="noreferrer"><i class="uil uil-map-marker-alt"></i></a></span> {strolls.stops1}</h3>
-                                    <span class="qualification__subtitle">Caracas - University</span>
+                                <h3 class="qualification__title " onClick={() => openModal(0)}>{strolls.stops1}</h3>
+                                    <span class="qualification__subtitle">Starting point</span>
                                     <div class="qualification__calendar">
-                                        <i class="uil uil-calendar-alt"></i>
-                                        2009-2015
+                                    
+                                        <a href="https://goo.gl/maps/zW7XpBS8j83UjEva8"  target="_blank" rel="noreferrer"><i class="uil uil-location-point"></i></a>
+                                        
                                     </div>
                                     <span className="button button--flex button--small button--link services__button" onClick={() => openModal(0)}>
                                         Info More
@@ -228,10 +230,10 @@ const StrollDetails = () => {
                                 </div>
                                 <div className="services__content">
                                     <h3 class="qualification__title">{strolls.stops2}</h3>
-                                    <span class="qualification__subtitle">Caracas - Uneweb</span>
+                                    <span class="qualification__subtitle">Next destination</span>
                                     <div class="qualification__calendar">
-                                        <i class="uil uil-calendar-alt"></i>
-                                        2015-2016
+                                        <a href="https://www.google.com/"  target="_blank" rel="noreferrer"><i class="uil uil-location-point"></i></a>
+                                        
                                     </div>
                                     <span className="button button--flex button--small button--link services__button" onClick={() => openModal(1)}>
                                         Info More
@@ -243,10 +245,10 @@ const StrollDetails = () => {
                             <div class="qualification__data">
                                 <div className="services__content">
                                     <h3 class="qualification__title">{strolls.stops3}</h3>
-                                    <span class="qualification__subtitle">USA - Celeritech</span>
+                                    <span class="qualification__subtitle">Third call</span>
                                     <div class="qualification__calendar">
-                                        <i class="uil uil-calendar-alt"></i>
-                                        2018-2019
+                                        <a href="https://www.google.com/"  target="_blank" rel="noreferrer"><i class="uil uil-location-point"></i></a>
+                                        
                                     </div>
                                     <span className="button button--flex button--small button--link services__button" onClick={() => openModal(2)}>
                                         Info More
@@ -267,10 +269,10 @@ const StrollDetails = () => {
                                     </div>
                                     <div className="services__content">
                                         <h3 class="qualification__title">{strolls.stops4}</h3>
-                                        <span class="qualification__subtitle">Spain - Ironhack</span>
+                                        <span class="qualification__subtitle">Our next planned stop</span>
                                         <div class="qualification__calendar">
-                                            <i class="uil uil-calendar-alt"></i>
-                                            2022-2023
+                                                <a href="https://www.google.com/"  target="_blank" rel="noreferrer"><i class="uil uil-location-point"></i></a>
+                                            
                                         </div>
                                         <span className="button button--flex button--small button--link services__button" onClick={() => openModal(3)}>
                                         Info More
@@ -283,10 +285,10 @@ const StrollDetails = () => {
                                 <div class="qualification__data">
                                 <div className="services__content">
                                     <h3 class="qualification__title">{strolls.stops5}</h3>
-                                    <span class="qualification__subtitle">USA - Celeritech</span>
+                                    <span class="qualification__subtitle">We are almost there</span>
                                     <div class="qualification__calendar">
-                                        <i class="uil uil-calendar-alt"></i>
-                                        2018-2019
+                                            <a href="https://www.google.com/"  target="_blank" rel="noreferrer"><i class="uil uil-location-point"></i></a>
+                                        
                                     </div>
                                     <span className="button button--flex button--small button--link services__button" onClick={() => openModal(4)}>
                                         Info More
@@ -307,10 +309,10 @@ const StrollDetails = () => {
                                     <div className="services__container ">
                                         <div className="services__content">
                                             <h3 class="qualification__title " onClick={() => openModal(0)}>{strolls.stops6}</h3>
-                                            <span class="qualification__subtitle">Spain - Ironhack</span>
+                                            <span class="qualification__subtitle">Our ultimate destination.</span>
                                             <div class="qualification__calendar">
-                                                <i class="uil uil-calendar-alt"></i>
-                                                2022-2023
+                                                    <a href="https://www.google.com/"  target="_blank" rel="noreferrer"><i class="uil uil-location-point"></i></a>
+                                                
                                             </div>
                                             <span className="button button--flex button--small button--link services__button" onClick={() => openModal(5)}>
                                                 Info More
@@ -341,7 +343,7 @@ const StrollDetails = () => {
                                     </li>
                                     <li className="services__modal-service">
                                         <i className="uil uil-check-circle services__modal-icon"></i>
-                                        <img src={strolls.description1} alt="" />
+                                        <p>{strolls.description1}</p>
                                     </li>
                                 </ul>
                             </div>
@@ -350,24 +352,16 @@ const StrollDetails = () => {
                     <div>
                         <div className={activeModal === 1 ? "services__modal active-modal" : "services__modal"}>
                             <div className="services__modal-content">
-                                <h4 className="services__modal-title">Axel Test</h4>
+                                <h4 className="services__modal-title">{strolls.stops2}</h4>
                                 <i className="uil uil-times services__modal-close" onClick={closeModal}></i>
                                 <ul className="services__modal-services grid">
                                     <li className="services__modal-service">
                                         <i className="uil uil-check-circle services__modal-icon"></i>
-                                        <p>Tes1.</p>
+                                        <img src={strolls.img2} alt="" />
                                     </li>
                                     <li className="services__modal-service">
                                         <i className="uil uil-check-circle services__modal-icon"></i>
-                                        <p>Test2.</p>
-                                    </li>
-                                    <li className="services__modal-service">
-                                        <i className="uil uil-check-circle services__modal-icon"></i>
-                                        <p>Test3</p>
-                                    </li>
-                                    <li className="services__modal-service">
-                                        <i className="uil uil-check-circle services__modal-icon"></i>
-                                        <p>Test4</p>
+                                        <p>{strolls.description2}</p>
                                     </li>
                                 </ul>
                             </div>
@@ -376,25 +370,18 @@ const StrollDetails = () => {
                     <div>
                         <div className={activeModal === 2 ? "services__modal active-modal" : "services__modal"}>
                             <div className="services__modal-content">
-                                <h4 className="services__modal-title">Lia Test</h4>
+                                <h4 className="services__modal-title">{strolls.stops3}</h4>
                                 <i className="uil uil-times services__modal-close" onClick={closeModal}></i>
                                 <ul className="services__modal-services grid">
                                     <li className="services__modal-service">
                                         <i className="uil uil-check-circle services__modal-icon"></i>
-                                        <p> Lia Tes1.</p>
+                                        <img src={strolls.img3} alt="" />
                                     </li>
                                     <li className="services__modal-service">
                                         <i className="uil uil-check-circle services__modal-icon"></i>
-                                        <p>Test2.</p>
+                                        <p>{strolls.description3}</p>
                                     </li>
-                                    <li className="services__modal-service">
-                                        <i className="uil uil-check-circle services__modal-icon"></i>
-                                        <p>Test3</p>
-                                    </li>
-                                    <li className="services__modal-service">
-                                        <i className="uil uil-check-circle services__modal-icon"></i>
-                                        <p> Lia Test4</p>
-                                    </li>
+     
                                 </ul>
                             </div>
                         </div>
@@ -402,25 +389,18 @@ const StrollDetails = () => {
                     <div>
                         <div className={activeModal === 3 ? "services__modal active-modal" : "services__modal"}>
                             <div className="services__modal-content">
-                                <h4 className="services__modal-title">Coco Test</h4>
+                                <h4 className="services__modal-title">{strolls.stops4}</h4>
                                 <i className="uil uil-times services__modal-close" onClick={closeModal}></i>
                                 <ul className="services__modal-services grid">
                                     <li className="services__modal-service">
                                         <i className="uil uil-check-circle services__modal-icon"></i>
-                                        <p>Coco Tes1.</p>
+                                        <img src={strolls.img4} alt="" />
                                     </li>
                                     <li className="services__modal-service">
                                         <i className="uil uil-check-circle services__modal-icon"></i>
-                                        <p>Test2.</p>
+                                        <p>{strolls.description4}</p>
                                     </li>
-                                    <li className="services__modal-service">
-                                        <i className="uil uil-check-circle services__modal-icon"></i>
-                                        <p>Test3</p>
-                                    </li>
-                                    <li className="services__modal-service">
-                                        <i className="uil uil-check-circle services__modal-icon"></i>
-                                        <p>Test4</p>
-                                    </li>
+     
                                 </ul>
                             </div>
                         </div>
@@ -428,25 +408,18 @@ const StrollDetails = () => {
                     <div>
                         <div className={activeModal === 4 ? "services__modal active-modal" : "services__modal"}>
                             <div className="services__modal-content">
-                                <h4 className="services__modal-title">Luchi Test</h4>
+                                <h4 className="services__modal-title">{strolls.stops5}</h4>
                                 <i className="uil uil-times services__modal-close" onClick={closeModal}></i>
                                 <ul className="services__modal-services grid">
                                     <li className="services__modal-service">
                                         <i className="uil uil-check-circle services__modal-icon"></i>
-                                        <p>Luchi.</p>
+                                        <img src={strolls.img5} alt="" />
                                     </li>
                                     <li className="services__modal-service">
                                         <i className="uil uil-check-circle services__modal-icon"></i>
-                                        <p>Test2.</p>
+                                        <p>{strolls.description5}</p>
                                     </li>
-                                    <li className="services__modal-service">
-                                        <i className="uil uil-check-circle services__modal-icon"></i>
-                                        <p>Test3</p>
-                                    </li>
-                                    <li className="services__modal-service">
-                                        <i className="uil uil-check-circle services__modal-icon"></i>
-                                        <p>Test4</p>
-                                    </li>
+
                                 </ul>
                             </div>
                         </div>
@@ -454,25 +427,19 @@ const StrollDetails = () => {
                     <div>
                         <div className={activeModal === 5 ? "services__modal active-modal" : "services__modal"}>
                             <div className="services__modal-content">
-                                <h4 className="services__modal-title">Mambo Test</h4>
+                                <h4 className="services__modal-title">{strolls.stops6}</h4>
                                 <i className="uil uil-times services__modal-close" onClick={closeModal}></i>
                                 <ul className="services__modal-services grid">
                                     <li className="services__modal-service">
                                         <i className="uil uil-check-circle services__modal-icon"></i>
-                                        <p>Mambo</p>
+                                        
+                                        <img src={strolls.img6} alt="" />
                                     </li>
                                     <li className="services__modal-service">
                                         <i className="uil uil-check-circle services__modal-icon"></i>
-                                        <p>Test2.</p>
+                                        <p>{strolls.description6}</p>
                                     </li>
-                                    <li className="services__modal-service">
-                                        <i className="uil uil-check-circle services__modal-icon"></i>
-                                        <p>Test3</p>
-                                    </li>
-                                    <li className="services__modal-service">
-                                        <i className="uil uil-check-circle services__modal-icon"></i>
-                                        <p>Test4</p>
-                                    </li>
+  
                                 </ul>
                             </div>
                         </div>
@@ -490,4 +457,3 @@ const StrollDetails = () => {
   )
 }
 export default StrollDetails
-
