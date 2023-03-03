@@ -151,7 +151,7 @@ const StrollDetails = () => {
       <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
         <img src={user.profilePicture} style={{ width: "100px", height: "100px", borderRadius: "50%", objectFit: "cover" }} alt="" />
       </div>
-      <p className='primaryText'>Created by <span className='text-customPrimary'>{user.username}</span></p>
+      <p className='primaryText'><span className='text-customPrimary'>{user.username}</span></p>
     </>
   )}
   {!user && (

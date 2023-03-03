@@ -13,7 +13,7 @@ function FilterCountry(props) {
 
   return (
     <div className="FilterCountry">
-      <label>Filter by Country:</label>
+      <label className="text-lg font-semibold mb-2">Filter by Country:</label>
       <select value={firstLetter} onChange={handleSelect}>
         <option key="All" value="All">
           All

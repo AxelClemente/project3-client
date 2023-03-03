@@ -1,5 +1,5 @@
 import React from 'react'
-import Search from '../Search/Search'
+// import Search from '../Search/Search'
 
 const Banner = () => {
   return (
@@ -20,7 +20,7 @@ const Banner = () => {
             <img src="images/mainPic.png" alt="bannerImage" style={{marginTop: '-48px'}} />
             </div>
         </div>
-        <Search/>
+        {/* <Search/> */}
     </section>
 
   )

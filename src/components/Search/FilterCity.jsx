@@ -13,7 +13,7 @@ function FilterCity(props) {
 
   return (
     <div className="FilterCity">
-      <label>Filter by City:</label>
+      <label className="text-lg font-semibold mb-2">Filter by City:</label>
       <select value={firstLetter} onChange={handleSelect}>
         <option value="All">All</option>
         {strolls.map((stroll) => {

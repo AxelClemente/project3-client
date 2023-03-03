@@ -1,5 +1,6 @@
 import { useState } from "react";
 
+
 function SearchCity(props) {
   const { searchCityStrollList } = props;
   const [firstLetter, setFirstLetter] = useState("");
@@ -12,8 +13,13 @@ function SearchCity(props) {
 
   return (
     <div className="SearchCity">
-      <label>Search by City:</label>
-      <input type="text" value={firstLetter} onChange={handleSelect} />
+      <div className="flex">
+        <label className="text-lg font-semibold mb-2">
+        City:</label>
+        <input type="text" value={firstLetter} onChange={handleSelect} />
+      </div>
+      
+      
     </div>
   );
 }

@@ -22,7 +22,7 @@ const StrollList = () => {
   const [filterStrolls, setFilterStrolls] = useState([]);
   const { user } = useContext(AuthContext);
   const [isStrollAdded, setIsStrollAdded] = useState(false);
-  // const [averageRatings, setAverageRatings] = useState({});
+  const [averageRatings, setAverageRatings] = useState({});
   const [strollsData, setStrollsData] = useState([]);
 
   // console.log(strolls);
@@ -142,41 +142,41 @@ const StrollList = () => {
       });
   };
 
-  // const getAverageRating = (strollId) => {
-  //   axios
-  //     .get(`${API_URL}/rating/strolls/${strollId}/rating`)
-  //     .then((response) => {
-  //       const { averageRating } = response.data;
-  //       setAverageRatings((prevState) => ({
-  //         ...prevState,
-  //         [strollId]: averageRating,
-  //       }));
-  //     })
-  //     // .catch((error) => {
-  //     //   console.error(error);
-  //     // });
-  //     .catch((error) => {
-  //       console.error(`Error fetching average rating for strolllllllll ${strollId}: ${error.message}`);
-  //     });
-  // };
+  const getAverageRating = (strollId) => {
+    axios
+      .get(`${API_URL}/rating/strolls/${strollId}/rating`)
+      .then((response) => {
+        const { averageRating } = response.data;
+        setAverageRatings((prevState) => ({
+          ...prevState,
+          [strollId]: averageRating,
+        }));
+      })
+      // .catch((error) => {
+      //   console.error(error);
+      // });
+      .catch((error) => {
+        console.error(`Error fetching average rating for strolllllllll ${strollId}: ${error.message}`);
+      });
+  };
 
-  // useEffect(() => {
-  //   // Keep track of strolls for which we have already fetched the average rating
-  //   const fetchedStrolls = Object.keys(averageRatings);
+  useEffect(() => {
+    // Keep track of strolls for which we have already fetched the average rating
+    const fetchedStrolls = Object.keys(averageRatings);
     
-  //   // Filter the strolls that we haven't fetched yet
-  //   const strollsToFetch = strolls.filter(stroll => !fetchedStrolls.includes(stroll._id));
+    // Filter the strolls that we haven't fetched yet
+    const strollsToFetch = strolls.filter(stroll => !fetchedStrolls.includes(stroll._id));
   
-  //   // Fetch the average rating for each stroll that we haven't fetched yet
-  //   strollsToFetch.forEach((stroll) => {
-  //     getAverageRating(stroll._id);
-  //   });
-  // }, [strolls, averageRatings]);
+    // Fetch the average rating for each stroll that we haven't fetched yet
+    strollsToFetch.forEach((stroll) => {
+      getAverageRating(stroll._id);
+    });
+  }, [strolls, averageRatings]);
   
 
   return (
     <div>
-      <div className="ResearchFilterBar">
+      <div className="ResearchFilterBar px-[30px] py-6 max-w-[1170px] mx-auto flex flex-col lg:flex-row justify-between gap-4 lg:gap-x-3 relative lg:-top-4 lg:shadow-1 bg-white lg:bg-transparent lg:backdrop-blur rounded-lg">
         <SearchCountry searchCountryStrollList={searchCountryStrollList} />
         <br />
         <SearchCity searchCityStrollList={searchCityStrollList} />
@@ -230,9 +230,9 @@ const StrollList = () => {
                       <div>
                         <RiStarSFill />
                       </div>
-                      {/* <p style={{ fontWeight: "bold" }}>
+                      <p style={{ fontWeight: "bold" }}>
                         {averageRatings[stroll._id] || 0}
-                      </p> */}
+                      </p>
                     </div>
                   </div>
 

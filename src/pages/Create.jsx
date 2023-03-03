@@ -154,15 +154,9 @@ const handleSubmit = (e) => {
               </div>
               <div class="contact__input grid">
                     <div class="contact__content">
-                        <label for="" class="contact__label">General description</label>
-                        <textarea name="description1" value={stroll.description1} onChange={handleChange} cols="0" rows="7" class="contact__input" placeholder="e.g. Describe with passion, inspire with words..."></textarea>
-                    </div>
-              </div>
-              <div class="contact__input grid">
-                    <div class="contact__content">
-                    <label for="image-upload"></label>
+                    <label for="image-upload">Image (1)</label>
                     <input class="contact__input"
-                    
+                      placeholder='e.g. "Copy image url"'
                       type="text"
                       name="img1"
                       value={stroll.img1}
@@ -171,6 +165,13 @@ const handleSubmit = (e) => {
                     />
                     </div>
               </div>
+              <div class="contact__input grid">
+                    <div class="contact__content">
+                        <label for="" class="contact__label">General description</label>
+                        <textarea name="description1" value={stroll.description1} onChange={handleChange} cols="0" rows="7" class="contact__input" placeholder="e.g. Describe with passion, inspire with words..."></textarea>
+                    </div>
+              </div>
+
               <div class="contact__inputs grid">
                     <div class="contact__content">
                         <label for="" class="contact__label">Stop two</label>
@@ -179,16 +180,10 @@ const handleSubmit = (e) => {
               </div>
               <div class="contact__input grid">
                     <div class="contact__content">
-                        <label for="" class="contact__label">General description</label>
-                        <textarea name="description2" value={stroll.description2} onChange={handleChange} cols="0" rows="7" class="contact__input" placeholder="e.g. Describe with passion, inspire with words..."></textarea>
-                    </div>
-              </div>
-              <div class="contact__input grid">
-                    <div class="contact__content">
-                    <label for="image-upload"></label>
+                    <label for="image-upload">Image (2)</label>
                     <input class="contact__input"
-                    
-                      type="file"
+                        placeholder='e.g. "Copy image url"'
+                      type="text"
                       name="img2"
                       value={stroll.img2}
                       onChange={handleChange}
@@ -196,6 +191,13 @@ const handleSubmit = (e) => {
                     />
                     </div>
               </div>
+              <div class="contact__input grid">
+                    <div class="contact__content">
+                        <label for="" class="contact__label">General description</label>
+                        <textarea name="description2" value={stroll.description2} onChange={handleChange} cols="0" rows="7" class="contact__input" placeholder="e.g. Describe with passion, inspire with words..."></textarea>
+                    </div>
+              </div>
+
               <div class="contact__inputs grid">
                     <div class="contact__content">
                         <label for="" class="contact__label">Stop three</label>
@@ -204,16 +206,10 @@ const handleSubmit = (e) => {
               </div>
               <div class="contact__input grid">
                     <div class="contact__content">
-                        <label for="" class="contact__label">General description</label>
-                        <textarea name="description3" value={stroll.description3} onChange={handleChange} cols="0" rows="7" class="contact__input" placeholder="e.g. Describe with passion, inspire with words..."></textarea>
-                    </div>
-              </div>
-              <div class="contact__input grid">
-                    <div class="contact__content">
-                    <label for="image-upload"></label>
+                    <label for="image-upload">Image (3)</label>
                     <input class="contact__input"
-                    
-                      type="file"
+                        placeholder='e.g. "Copy image url"'
+                      type="text"
                       name="img3"
                       value={stroll.img3}
                       onChange={handleChange}
@@ -221,6 +217,13 @@ const handleSubmit = (e) => {
                     />
                     </div>
               </div>
+              <div class="contact__input grid">
+                    <div class="contact__content">
+                        <label for="" class="contact__label">General description</label>
+                        <textarea name="description3" value={stroll.description3} onChange={handleChange} cols="0" rows="7" class="contact__input" placeholder="e.g. Describe with passion, inspire with words..."></textarea>
+                    </div>
+              </div>
+
               <div class="contact__inputs grid">
                     <div class="contact__content">
                         <label for="" class="contact__label">Stop four</label>
@@ -229,16 +232,10 @@ const handleSubmit = (e) => {
               </div>
               <div class="contact__input grid">
                     <div class="contact__content">
-                        <label for="" class="contact__label">General description</label>
-                        <textarea name="description4" value={stroll.description4} onChange={handleChange} cols="0" rows="7" class="contact__input" placeholder="e.g. Describe with passion, inspire with words..."></textarea>
-                    </div>
-              </div>
-              <div class="contact__input grid">
-                    <div class="contact__content">
-                    <label for="image-upload"></label>
+                    <label for="image-upload">Image (4)</label>
                     <input class="contact__input"
-                    
-                      type="file"
+                        placeholder='e.g. "Copy image url"'
+                      type="text"
                       name="img4"
                       value={stroll.img4}
                       onChange={handleChange}
@@ -246,6 +243,13 @@ const handleSubmit = (e) => {
                     />
                     </div>
               </div>
+              <div class="contact__input grid">
+                    <div class="contact__content">
+                        <label for="" class="contact__label">General description</label>
+                        <textarea name="description4" value={stroll.description4} onChange={handleChange} cols="0" rows="7" class="contact__input" placeholder="e.g. Describe with passion, inspire with words..."></textarea>
+                    </div>
+              </div>
+
               <div class="contact__inputs grid">
                     <div class="contact__content">
                         <label for="" class="contact__label">Stop five</label>
@@ -254,16 +258,10 @@ const handleSubmit = (e) => {
               </div>
               <div class="contact__input grid">
                     <div class="contact__content">
-                        <label for="" class="contact__label">General description</label>
-                        <textarea name="description5" value={stroll.description5} onChange={handleChange} cols="0" rows="7" class="contact__input" placeholder="e.g. Describe with passion, inspire with words..."></textarea>
-                    </div>
-              </div>
-              <div class="contact__input grid">
-                    <div class="contact__content">
-                    <label for="image-upload"></label>
+                    <label for="image-upload">Image (5)</label>
                     <input class="contact__input"
-                    
-                      type="file"
+                        placeholder='e.g. "Copy image url"'
+                      type="text"
                       name="img5"
                       value={stroll.img5}
                       onChange={handleChange}
@@ -271,6 +269,13 @@ const handleSubmit = (e) => {
                     />
                     </div>
               </div>
+              <div class="contact__input grid">
+                    <div class="contact__content">
+                        <label for="" class="contact__label">General description</label>
+                        <textarea name="description5" value={stroll.description5} onChange={handleChange} cols="0" rows="7" class="contact__input" placeholder="e.g. Describe with passion, inspire with words..."></textarea>
+                    </div>
+              </div>
+
               <div class="contact__inputs grid">
                     <div class="contact__content">
                         <label for="" class="contact__label">Stop six</label>
@@ -279,16 +284,10 @@ const handleSubmit = (e) => {
               </div>
               <div class="contact__input grid">
                     <div class="contact__content">
-                        <label for="" class="contact__label">General description</label>
-                        <textarea name="description6" value={stroll.description6} onChange={handleChange} cols="0" rows="7" class="contact__input" placeholder="e.g. Describe with passion, inspire with words..."></textarea>
-                    </div>
-              </div>
-              <div class="contact__input grid">
-                    <div class="contact__content">
-                    <label for="image-upload"></label>
+                    <label for="image-upload">Image (6)</label>
                     <input class="contact__input"
-                    
-                      type="file"
+                        placeholder='e.g. "Copy image url"'
+                      type="text"
                       name="img6"
                       value={stroll.img6}
                       onChange={handleChange}
@@ -296,6 +295,13 @@ const handleSubmit = (e) => {
                     />
                     </div>
               </div>
+              <div class="contact__input grid">
+                    <div class="contact__content">
+                        <label for="" class="contact__label">General description</label>
+                        <textarea name="description6" value={stroll.description6} onChange={handleChange} cols="0" rows="7" class="contact__input" placeholder="e.g. Describe with passion, inspire with words..."></textarea>
+                    </div>
+              </div>
+
                <div>
                     <button type="submit" class="button button--flex">Create Stroll</button>
                </div>       

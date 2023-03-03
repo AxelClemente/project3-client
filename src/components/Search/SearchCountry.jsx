@@ -1,5 +1,6 @@
 import { useState } from "react";
 
+
 function SearchCountry(props) {
   const { searchCountryStrollList } = props;
   const [firstLetter, setFirstLetter] = useState("");
@@ -11,11 +12,12 @@ function SearchCountry(props) {
   };
 
   return (
-    <div className="SearchCountry">
-      <label>Search by Country</label>
+    <div className="SearchCountry flex">
+      <label className="text-lg font-semibold mb-2">Country:</label>
       <input type="text" value={firstLetter} onChange={handleSelect} />
     </div>
   );
 }
 
 export default SearchCountry;
+
