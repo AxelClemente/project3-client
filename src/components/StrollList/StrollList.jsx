@@ -158,12 +158,18 @@ const StrollList = () => {
   };
 
   useEffect(() => {
-    strolls.forEach((stroll) => {
-      if (!averageRatings[stroll._id]) {
-        getAverageRating(stroll._id);
-      }
+    // Keep track of strolls for which we have already fetched the average rating
+    const fetchedStrolls = Object.keys(averageRatings);
+    
+    // Filter the strolls that we haven't fetched yet
+    const strollsToFetch = strolls.filter(stroll => !fetchedStrolls.includes(stroll._id));
+  
+    // Fetch the average rating for each stroll that we haven't fetched yet
+    strollsToFetch.forEach((stroll) => {
+      getAverageRating(stroll._id);
     });
-  }, [strolls]);
+  }, [strolls, averageRatings]);
+  
 
   return (
     <div>
