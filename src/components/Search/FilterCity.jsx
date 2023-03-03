@@ -17,7 +17,7 @@ function FilterCity(props) {
       <select value={firstLetter} onChange={handleSelect}>
         <option value="All">All</option>
         {strolls.map((stroll) => {
-          return <option value={stroll.city}>{stroll.city}</option>;
+          return <option key={stroll.city} value={stroll.city}>{stroll.city}</option>;
         })}
       </select>
     </div>

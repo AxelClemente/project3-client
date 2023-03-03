@@ -15,9 +15,15 @@ function FilterCountry(props) {
     <div className="FilterCountry">
       <label>Filter by Country:</label>
       <select value={firstLetter} onChange={handleSelect}>
-        <option value="All">All</option>
+        <option key="All" value="All">
+          All
+        </option>
         {strolls.map((stroll) => {
-          return <option value={stroll.country}>{stroll.country}</option>;
+          return (
+            <option key={stroll._id} value={stroll.country}>
+              {stroll.country}
+            </option>
+          );
         })}
       </select>
     </div>
@@ -25,3 +31,4 @@ function FilterCountry(props) {
 }
 
 export default FilterCountry;
+

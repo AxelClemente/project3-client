@@ -111,9 +111,9 @@ const StrollDetails = () => {
             stroll: strollId,
           })
           .then((response) => {
-            console.log(strollId)
-            console.log(rating)
-            console.log(rating)
+            // console.log(strollId)
+            // console.log(rating)
+            // console.log(rating)
             const newRating = response.data;
             // Update the stroll with the new rating in the strolls state
             setStrolls((prevStrolls) => {
@@ -144,15 +144,15 @@ const StrollDetails = () => {
     <div>
             
             
-            <section class="qualification section">
-                <div class="section__title">
+            <section className="qualification section">
+                <div className="section__title">
                     <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
                         <img src={user.profilePicture} style={{ width: "100px", height: "100px", borderRadius: "50%", objectFit: "cover" }} alt="" />
                     </div>
                     <p className='primaryText'>Created by <span className='text-customPrimary'>{user.username}</span></p>
                 </div>
 
-                <h2 class="section__title" style={{ marginTop: "3rem", marginBottom: "2rem" }}>{strolls.title.charAt(0).toUpperCase() + strolls.title.slice(1)}</h2>
+                <h2 className="section__title" style={{ marginTop: "3rem", marginBottom: "2rem" }}>{strolls.title.charAt(0).toUpperCase() + strolls.title.slice(1)}</h2>
                 <div className="flex gap-x-6 justify-center">
                     <div className="flex items-center">
                     <RiTimerLine className="dropdown-icon-customYellow" />
@@ -179,7 +179,7 @@ const StrollDetails = () => {
                     <img className="mb-8" src={strolls.img1} style={{ width: "500px", height: "400px", borderRadius: "0 0 5% 0",}} alt="img" />
                 </div>
                 
-                <span class="section__subtitle">Lets Start🚀</span>
+                <span className="section__subtitle">Lets Start🚀</span>
                 <div className='flex text-customThird cursor-pointer mb-10 ' style={{ justifyContent: 'center', alignItems: 'center' }}>
                     {renderStars(rating, strolls._id)}
                     { rated && 
@@ -187,25 +187,19 @@ const StrollDetails = () => {
                             Thanks for sharing your rating!
                         </p>}
                 </div>
-                <div class="qualification__container container">
-                    {/* <div class="qualification__tabs">
-                        <div class="qualification__button button--flex qualification__active">
-                        <i class="uil uil-location-point"style={{color: 'rgb(237,119,113)'}}></i> 
-                        <img src={strolls.img1} alt="" /><i class="uil uil-heart-sign"></i>
+                <div className="qualification__container container">
+
+                    <div className="qualification__sections">
                         
-                        </div>
-                    </div> */}
-                    <div class="qualification__sections">
-                        
-                        <div class="qualification__content qualification__active" data-content id="education">
+                        <div className="qualification__content qualification__active" data-content id="education">
                             
-                            <div class="qualification__data">
+                            <div className="qualification__data">
                                 <div className="services__content">
-                                <h3 class="qualification__title " onClick={() => openModal(0)}>{strolls.stops1}</h3>
-                                    <span class="qualification__subtitle">Starting point</span>
-                                    <div class="qualification__calendar">
+                                <h3 className="qualification__title " onClick={() => openModal(0)}>{strolls.stops1}</h3>
+                                    <span className="qualification__subtitle">Starting point</span>
+                                    <div className="qualification__calendar">
                                     
-                                        <a href="https://goo.gl/maps/zW7XpBS8j83UjEva8"  target="_blank" rel="noreferrer"><i class="uil uil-location-point"></i></a>
+                                        <a href="https://goo.gl/maps/zW7XpBS8j83UjEva8"  target="_blank" rel="noreferrer"><i className="uil uil-location-point"></i></a>
                                         
                                     </div>
                                     <span className="button button--flex button--small button--link services__button" onClick={() => openModal(0)}>
@@ -214,23 +208,23 @@ const StrollDetails = () => {
                                     </span>
                                 </div>
                                 <div>
-                                    <span class="qualification__rounder" style={{backgroundColor: 'rgb(104,105,152)'}}></span>
-                                    <span class="qualification__line" style={{backgroundColor: 'rgb(104,105,152)'}}></span>
+                                    <span className="qualification__rounder" style={{backgroundColor: 'rgb(104,105,152)'}}></span>
+                                    <span className="qualification__line" style={{backgroundColor: 'rgb(104,105,152)'}}></span>
                                     
                                 </div>
                             </div>
                             
-                            <div class="qualification__data">
+                            <div className="qualification__data">
                                 <div></div>
                                 <div>
-                                    <span class="qualification__rounder" style={{backgroundColor: 'rgb(104,105,152)'}}></span>
-                                    <span class="qualification__line"style={{backgroundColor: 'rgb(237,119,113)'}}></span>
+                                    <span className="qualification__rounder" style={{backgroundColor: 'rgb(104,105,152)'}}></span>
+                                    <span className="qualification__line"style={{backgroundColor: 'rgb(237,119,113)'}}></span>
                                 </div>
                                 <div className="services__content">
-                                    <h3 class="qualification__title">{strolls.stops2}</h3>
-                                    <span class="qualification__subtitle">Next destination</span>
-                                    <div class="qualification__calendar">
-                                        <a href="https://www.google.com/"  target="_blank" rel="noreferrer"><i class="uil uil-location-point"></i></a>
+                                    <h3 className="qualification__title">{strolls.stops2}</h3>
+                                    <span className="qualification__subtitle">Next destination</span>
+                                    <div className="qualification__calendar">
+                                        <a href="https://www.google.com/"  target="_blank" rel="noreferrer"><i className="uil uil-location-point"></i></a>
                                         
                                     </div>
                                     <span className="button button--flex button--small button--link services__button" onClick={() => openModal(1)}>
@@ -240,12 +234,12 @@ const StrollDetails = () => {
                                 </div>
                             </div>
                             
-                            <div class="qualification__data">
+                            <div className="qualification__data">
                                 <div className="services__content">
-                                    <h3 class="qualification__title">{strolls.stops3}</h3>
-                                    <span class="qualification__subtitle">Third call</span>
-                                    <div class="qualification__calendar">
-                                        <a href="https://www.google.com/"  target="_blank" rel="noreferrer"><i class="uil uil-location-point"></i></a>
+                                    <h3 className="qualification__title">{strolls.stops3}</h3>
+                                    <span className="qualification__subtitle">Third call</span>
+                                    <div className="qualification__calendar">
+                                        <a href="https://www.google.com/"  target="_blank" rel="noreferrer"><i className="uil uil-location-point"></i></a>
                                         
                                     </div>
                                     <span className="button button--flex button--small button--link services__button" onClick={() => openModal(2)}>
@@ -254,22 +248,22 @@ const StrollDetails = () => {
                                     </span>
                                 </div>
                                 <div>
-                                    <span class="qualification__rounder"style={{backgroundColor: 'rgb(237,119,113)'}}></span>
-                                    <span class="qualification__line"style={{backgroundColor: 'rgb(104,105,152)'}}></span>
+                                    <span className="qualification__rounder"style={{backgroundColor: 'rgb(237,119,113)'}}></span>
+                                    <span className="qualification__line"style={{backgroundColor: 'rgb(104,105,152)'}}></span>
                                 </div>
                             </div>
                             
-                                <div class="qualification__data">
+                                <div className="qualification__data">
                                     <div></div>
                                     <div >
-                                        <span class="qualification__rounder"style={{backgroundColor: 'rgb(104,105,152)'}}></span>
-                                        <span class="qualification__line"style={{backgroundColor: 'rgb(104,105,152)'}}></span> 
+                                        <span className="qualification__rounder"style={{backgroundColor: 'rgb(104,105,152)'}}></span>
+                                        <span className="qualification__line"style={{backgroundColor: 'rgb(104,105,152)'}}></span> 
                                     </div>
                                     <div className="services__content">
-                                        <h3 class="qualification__title">{strolls.stops4}</h3>
-                                        <span class="qualification__subtitle">Our next planned stop</span>
-                                        <div class="qualification__calendar">
-                                                <a href="https://www.google.com/"  target="_blank" rel="noreferrer"><i class="uil uil-location-point"></i></a>
+                                        <h3 className="qualification__title">{strolls.stops4}</h3>
+                                        <span className="qualification__subtitle">Our next planned stop</span>
+                                        <div className="qualification__calendar">
+                                                <a href="https://www.google.com/"  target="_blank" rel="noreferrer"><i className="uil uil-location-point"></i></a>
                                             
                                         </div>
                                         <span className="button button--flex button--small button--link services__button" onClick={() => openModal(3)}>
@@ -280,12 +274,12 @@ const StrollDetails = () => {
                     
         
                                 </div>
-                                <div class="qualification__data">
+                                <div className="qualification__data">
                                 <div className="services__content">
-                                    <h3 class="qualification__title">{strolls.stops5}</h3>
-                                    <span class="qualification__subtitle">We are almost there</span>
-                                    <div class="qualification__calendar">
-                                            <a href="https://www.google.com/"  target="_blank" rel="noreferrer"><i class="uil uil-location-point"></i></a>
+                                    <h3 className="qualification__title">{strolls.stops5}</h3>
+                                    <span className="qualification__subtitle">We are almost there</span>
+                                    <div className="qualification__calendar">
+                                            <a href="https://www.google.com/"  target="_blank" rel="noreferrer"><i className="uil uil-location-point"></i></a>
                                         
                                     </div>
                                     <span className="button button--flex button--small button--link services__button" onClick={() => openModal(4)}>
@@ -294,22 +288,22 @@ const StrollDetails = () => {
                                     </span>
                                 </div>
                                 <div>
-                                    <span class="qualification__rounder"style={{backgroundColor: 'rgb(104,105,152)'}}></span>
-                                    <span class="qualification__line"style={{backgroundColor: 'rgb(237,119,113)'}}></span>
+                                    <span className="qualification__rounder"style={{backgroundColor: 'rgb(104,105,152)'}}></span>
+                                    <span className="qualification__line"style={{backgroundColor: 'rgb(237,119,113)'}}></span>
                                 </div>
                             </div>
-                            <div class="qualification__data">
+                            <div className="qualification__data">
                                     <div></div>
                                     <div>
-                                        <span class="qualification__rounder"style={{backgroundColor: 'rgb(237,119,113)'}}></span>
+                                        <span className="qualification__rounder"style={{backgroundColor: 'rgb(237,119,113)'}}></span>
                                         
                                     </div>
                                     <div className="services__container ">
                                         <div className="services__content">
-                                            <h3 class="qualification__title " onClick={() => openModal(0)}>{strolls.stops6}</h3>
-                                            <span class="qualification__subtitle">Our ultimate destination.</span>
-                                            <div class="qualification__calendar">
-                                                    <a href="https://www.google.com/"  target="_blank" rel="noreferrer"><i class="uil uil-location-point"></i></a>
+                                            <h3 className="qualification__title " onClick={() => openModal(0)}>{strolls.stops6}</h3>
+                                            <span className="qualification__subtitle">Our ultimate destination.</span>
+                                            <div className="qualification__calendar">
+                                                    <a href="https://www.google.com/"  target="_blank" rel="noreferrer"><i className="uil uil-location-point"></i></a>
                                                 
                                             </div>
                                             <span className="button button--flex button--small button--link services__button" onClick={() => openModal(5)}>

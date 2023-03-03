@@ -99,7 +99,7 @@ const StrollList = () => {
     }
   };
 
-  console.log("the user is:", user);
+  // console.log("the user is:", user);
   useEffect(() => {
     axios
       .get(`${API_URL}/strolls`)
