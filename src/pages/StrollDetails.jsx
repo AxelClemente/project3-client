@@ -155,7 +155,7 @@ const StrollDetails = () => {
     </>
   )}
   {!user && (
-    <p className='primaryText'>Created by <span className='text-customPrimary'>Anonymous</span></p>
+    <p className='primaryText'>User <span className='text-customPrimary'> Guest</span></p>
   )}
 </div>
 

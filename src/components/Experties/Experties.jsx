@@ -52,7 +52,7 @@ const Experties = () => {
                     })
                 } */}
                 <p className='secondaryText'>
-                <span className='text-customPrimary'>Strollapp</span>  - plan your perfect city getaway with itineraries created by local experts, read traveler reviews and share your own experience.
+                <span className='text-customPrimary'>City Stroll</span>  - plan your perfect city getaway with itineraries created by local experts, rate and share your own experience.
                     <br /> A tool to create customized city travels with distance, cost, destinations, and time.
                 </p>
 

@@ -41,7 +41,7 @@ const Footer = () => {
                     <p>Backend: Node.js, Express, Mongoose, MongoDB</p> */}
                 </div>
                 <div className={css.menu}>
-                    <p>Frontend: React.js, Css Sass.</p>
+                    <p>Frontend: React.js, Tailwind CSS, Sass.</p>
                     <p className={css.test}>Backend: Node.js, Express, Mongoose.</p>
                 </div>
             </div>
