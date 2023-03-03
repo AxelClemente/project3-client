@@ -145,12 +145,19 @@ const StrollDetails = () => {
             
             
             <section className="qualification section">
-                <div className="section__title">
-                    <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
-                        <img src={user.profilePicture} style={{ width: "100px", height: "100px", borderRadius: "50%", objectFit: "cover" }} alt="" />
-                    </div>
-                    <p className='primaryText'>Created by <span className='text-customPrimary'>{user.username}</span></p>
-                </div>
+            <div className="section__title">
+  {user && (
+    <>
+      <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+        <img src={user.profilePicture} style={{ width: "100px", height: "100px", borderRadius: "50%", objectFit: "cover" }} alt="" />
+      </div>
+      <p className='primaryText'>Created by <span className='text-customPrimary'>{user.username}</span></p>
+    </>
+  )}
+  {!user && (
+    <p className='primaryText'>Created by <span className='text-customPrimary'>Anonymous</span></p>
+  )}
+</div>
 
                 <h2 className="section__title" style={{ marginTop: "3rem", marginBottom: "2rem" }}>{strolls.title.charAt(0).toUpperCase() + strolls.title.slice(1)}</h2>
                 <div className="flex gap-x-6 justify-center">
