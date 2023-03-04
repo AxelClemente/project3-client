@@ -1,70 +1,69 @@
-# Getting Started with Create React App
+README CityStroll App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+*** Table of Contents: ***
+0 Authors 
+1 Context 
+2 Language 
+3 Built with 
+4 Usage 
+5 Future functionalities 
+6 Contribution 
+7 Acknowledgments 
+8 Disclaimer 
+9 Contact 
+10 Links
 
-## Available Scripts
+*** 0 Authors: *** 
+Axel, Arcadio
 
-In the project directory, you can run:
+*** 1 Context ***
 
-### `npm start`
+This project was created in the frame of a Web Development’s bootcamp at Ironhack, for the module 3. This is our final project. 
+The requirement of the project: Develop a Full-stack application using the MERN stack (MongoDB, Express, React and Node.JS).
+The name of the application is CityStroll App. This project was inspired by the cultural richness that every student at the cohort has. We are lucky to be part of an international and multicultural cohort, this multiculturalism enhances the ideas to discover the world and thrills the code curiosity.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+*** 2 Language ***
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+The CityStroll web application was created for English speakers’ users.
 
-### `npm test`
+*** 3 Built with ***
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+MongoDB, Express, React, Node.JS
 
-### `npm run build`
+*** 4 Usage ***
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+CityStroll - is a web app that helps you to plan your perfect city getaway with itineraries created by local experts, read traveler reviews and share your own experience. Discover the city's hidden gems, secret spots, and local flavors at your own pace. Say goodbye to generic tours and hello to an authentic and immersive city experience.
+A tool to create customized city travels with distance, cost, destinations, and time.
+How does it work?
+The general user can use the app as a tourist guide and live every city as a local. The logged in user has the authorization of create, read, update and delete the information displayed. In addition, the logged in user can suggest strolls according his/her voyage’s background and experience.
+Why did you choose it?
+Because we love to travel and we love to discover new spots, not as a tourists but as a real “voyageurs”.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+*** 5 Future functionalities *** 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Sky is the limit!
 
-### `npm run eject`
+*** 6 Contribution *** 
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+You can contact us at: XXX
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+*** 7 Acknowledgments ***
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Thanks to our Jedi’s Masters Lloyd and Inês for your support, patience and teaching. Thanks to our Web Development cohort, your cultural background inspired us to create an app to discover the gems and the secret spots of your beautiful countries!
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+*** 8 Disclaimer ***
 
-## Learn More
+May the force be with you! Happy coding and travelling!
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+*** 9 Contact *** 
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+You can contact us at: XXX
 
-### Code Splitting
+*** 10 Links *** 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+The project is deployed at: 
+https://stroll-app.netlify.app/
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+The repositories:
+https://github.com/AxelClemente/project3-api
+https://github.com/AxelClemente/project3-client
