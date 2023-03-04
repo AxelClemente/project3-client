@@ -112,7 +112,7 @@ const LoginPage = () => {
                           </div>   
                       </form>
                   </div>
-
+                  {errorMessage && <p>{errorMessage}</p>}
           </section>
         </div>
 
