@@ -769,7 +769,10 @@ img {
   }
   .qualification__data{
     gap: .5rem;
+    
   }
+
+
   .services__container{
     grid-template-columns: max-content;
     justify-content: center;
@@ -913,4 +916,64 @@ img {
   .aboutEspecial{
     margin-bottom:4rem;
   }
+}
+
+
+/*======= MEDIA QUERIES =======*/
+/*    SMALL DEVICES   */
+
+/* @media only screen and (max-width: 390px) {
+  .dashboard__card{
+    max-width: 70%;
+    margin-left: 30px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .dashboard__update__form{
+    display: none;
+  }
+
+  .dash{
+    display: none;
+  }
+
+  
+} */
+
+@media screen and (max-width: 769px){
+  .dashboard__card{
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  .dashboard__update__form{
+    display: none;
+  }
+
+  .create__title{
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .create__title h2 {
+    text-align: center;
+  }
+
+  .contact__form{
+    display: flex;
+    align-items: center;
+    margin-right: 40px
+  }
+
+  .update__title{
+    display: flex;
+    text-align: center;
+    max-width: 80%;
+    margin-top: 20px;
+  }
+  
 }

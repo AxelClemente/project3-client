@@ -149,14 +149,15 @@ const Header = () => {
           )}
           {isLoggedIn && (
             <>
-              <Link to={"/"}>
-                {" "}
-                <button>Home</button>{" "}
-              </Link>
               <Link to={"/users"}>
                 {" "}
                 <button>Profile</button>{" "}
               </Link>
+              <Link to={"/"}>
+                {" "}
+                <button>About Us</button>{" "}
+              </Link>
+
               <Link to={"/"}>
                 {" "}
                 <button onClick={logOutUser}>Log out</button>

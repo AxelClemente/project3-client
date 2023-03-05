@@ -14,12 +14,12 @@ export default function FeaturedInfo() {
 
 
 
-        <div className="featuredItem">
+        {/* <div className="featuredItem">
             <div className="featuredMoneyContainer">
-                {/* <StrollCreated/> */}
+                <StrollCreated/>
             </div>
-            {/* <span className="featuredSub">Compare to last month</span> */}
-        </div>
+            <span className="featuredSub">Compare to last month</span>
+        </div> */}
 
     </div>
   )

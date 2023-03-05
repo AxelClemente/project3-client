@@ -4,6 +4,7 @@ import { AuthContext } from '../context/auth.context';
 import { useState, useContext } from 'react';
 import placeholderProfileImage from '../images/profile.png'
 import axios from 'axios';
+import '../pages/style.css';
 const API_URL= process.env.REACT_APP_API_URL || 'http://localhost:5005';
 
 
@@ -47,37 +48,41 @@ const User = () => {
   }
   return (
    
-<div>
+  <div className='dashboard__card'>
       {user && (
         <>
           
           {isLoggedIn && (
             <>
-              <h2 className='primaryText' >Welcome back  <span className='text-customPrimary'>{user.username}!</span></h2>
+            
+              <h2 className='primaryText dash' >Welcome <span className='text-customPrimary'>{user.username}!</span></h2>
               <br />
               <img
-  src={
-    user.profilePicture
-      ? user.profilePicture
-      : placeholderProfileImage
-  }
-  alt={"User's Profile"}
-  className="profilePicture"
-  
-  style={{ width: "100px", height: "100px" }}
-/>
-              <br />
-              <h2>Update image form</h2>
-              <form onSubmit={handleSubmit}>
-                <input
-                  type="file"
-                  name="profilePicture"
-                  onChange={(e) => handleFileUpload(e)}
+                  src={
+                    user.profilePicture
+                      ? user.profilePicture
+                      : placeholderProfileImage
+                  }
+                  alt={"User's Profile"}
+                  className="profilePicture"
+                  
+                  style={{ width: "100px", height: "100px" }}
                 />
-                <br />
-                <br />
-                <button type="submit">Update User Image</button>
-              </form>
+              <br />
+              <div className='dashboard__update__form'>
+                <h2>Update image form</h2>
+                <form onSubmit={handleSubmit}>
+                  <input
+                    type="file"
+                    name="profilePicture"
+                    onChange={(e) => handleFileUpload(e)}
+                  />
+                  <br />
+                  <br />
+                  <button type="submit">Update User Image</button>
+                </form>
+              </div>
+              
             </>
           )}
         </>

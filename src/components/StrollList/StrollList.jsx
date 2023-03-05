@@ -24,6 +24,17 @@ const StrollList = () => {
   const [isStrollAdded, setIsStrollAdded] = useState(false);
   const [averageRatings, setAverageRatings] = useState({});
   const [strollsData, setStrollsData] = useState([]);
+  const [screenSize, setScreenSize] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setScreenSize(window.innerWidth);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const isMediumScreen = screenSize >= 800;
 
   // console.log(strolls);
 
@@ -204,7 +215,11 @@ const StrollList = () => {
                 className="bg-white shadow-1 p-5  hover:shadow-2 transition"
               >
                 <Link to={`/strolls/${stroll._id}`}>
-                  <img className="mb-8" src={stroll.img1} style={{ width: "700px", height: "400px"}} alt="img" />
+                  <img className="mb-8" src={stroll.img1} style={
+                isMediumScreen
+                  ? { width: "700px", height: "400px" }
+                  : { width: "100%", height: "auto" }
+              } alt="img" />
                 </Link>
 
                 <div className="mb-4">
