@@ -9,6 +9,12 @@
     top: 0;
     transition: all 300ms ease;
     background-color: transparent;
+    margin-bottom: 50px;
+
+    .responsive__menu{
+        display: flex;
+        flex-direction: column;
+    }
     
 
     .container{
@@ -20,6 +26,8 @@
             .menuIcon{
                 display: none;
             }
+
+            
         }
         
 

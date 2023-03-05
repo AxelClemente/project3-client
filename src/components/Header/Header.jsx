@@ -144,7 +144,7 @@ const Header = () => {
           )}
           {pathname === "/stroll" && (
             <a href="/">
-              <span className="text-customPrimary">Home</span>
+              <span className="text-customPrimary">About Us</span>
             </a>
           )}
           {isLoggedIn && (
@@ -173,25 +173,50 @@ const Header = () => {
               </div>
             </>
           )}
-          {!isLoggedIn && (
+            {!isLoggedIn && (
             <>
               <Link to={"/"}>
                 {" "}
-                <button>Home</button>{" "}
+                <button>About Us</button>{" "}
+              </Link>
+              <Link to={"/login"}>
+                {" "}
+                <button>Login</button>{" "}
+              </Link>
+
+              <Link to={"/signup"}>
+                {" "}
+                <button  className="bg-customPrimary hover:bg-customSecondary px-4 py-3 rounded-lg transition"  style={{ color: "white" }} onClick={logOutUser}>Singup</button>
               </Link>
               <div className="flex items-center gap-6">
-                <Link to={"/login"} className="hover:text-custom transition">
-                  Log In
-                </Link>
-                <Link
-                  to={"/signup"}
-                  className="bg-customPrimary hover:bg-customSecondary px-4 py-3 rounded-lg transition"
-                  style={{ color: "white" }}
-                >
-                  Sign up
-                </Link>
               </div>
             </>
+            // {!isLoggedIn && (
+            //   <>
+            //   <div>
+                
+            //   </div>
+            //       <div>
+            //           <div className="flex items-center gap-6">
+            //             <Link to={"/"}>
+            //               {" "}
+            //               <button>About Us</button>{" "}
+            //             </Link>
+            //             <Link to={"/login"} className="hover:text-custom transition">
+            //               Log In
+            //             </Link>
+            //             <Link
+            //               to={"/signup"}
+            //               className="bg-customPrimary hover:bg-customSecondary px-4 py-3 rounded-lg transition"
+            //               style={{ color: "white" }}
+            //             >
+            //               Sign up
+            //             </Link>
+
+            //         </div>
+            //       </div>
+
+            //   </>
           )}
         </ul>
         <div

@@ -46,37 +46,7 @@ const LoginPage = () => {
   };
 
   return (
-    
-    // <div>
-    //     <h1>Welcome to the LoginPage</h1>
 
-    //     <form onSubmit={handleSubmit}>
-    //       <label htmlFor="email">Email:</label>
-    //       <br />
-    //       <input
-    //         type="text"
-    //         name="email"
-    //         value={user.email}
-    //         onChange={handleChange}
-    //       />
-    //       <br />
-
-    //       <label htmlFor="password">Password:</label>
-    //       <br />
-    //       <input
-    //         type="password"
-    //         name="password"
-    //         value={user.password}
-    //         onChange={handleChange}
-    //       />
-    //       <br />
-    //       <br />
-
-    //       <button type="submit">Login!</button>
-    //     </form>
-
-    //     {errorMessage && <p>{errorMessage}</p>}
-    // </div>
         <div>
 
           <section class="contact section">
@@ -88,7 +58,7 @@ const LoginPage = () => {
                     
                     <div class="create-first-img">
                             <img                   
-                            src="/images/login3.png" alt="" width="540" />
+                            src="/images/login3.png" alt="" width="370" />
                     </div>
                   </div>
 

@@ -39,67 +39,7 @@ const SignUpPage = () => {
   };
 
   return (
-    // <div>
-    //   <h1>Welcome Stroller to the Sign Up Page!</h1>
-    //   <br />
 
-    //   <form onSubmit={handleSubmit}>
-    //     <label htmlFor="email">Email:</label>
-    //     <br />
-    //     <input
-    //       type="text"
-    //       name="email"
-    //       value={user.email}
-    //       onChange={handleChange}
-    //     />
-    //     <br />
-
-    //     <label htmlFor="username">Username:</label>
-    //     <br />
-    //     <input
-    //       type="text"
-    //       name="username"
-    //       value={user.username}
-    //       onChange={handleChange}
-    //     />
-    //     <br />
-
-    //     <label htmlFor="password">Password:</label>
-    //     <br />
-    //     <input
-    //       type="password"
-    //       name="password"
-    //       value={user.password}
-    //       onChange={handleChange}
-    //     />
-    //     <br />
-
-    //     <label htmlFor="country">Country:</label>
-    //     <br />
-    //     <input
-    //       type="text"
-    //       name="country"
-    //       value={user.country}
-    //       onChange={handleChange}
-    //     />
-    //     <br />
-
-    //     <label htmlFor="city">City:</label>
-    //     <br />
-
-    //     <input
-    //       type="text"
-    //       name="city"
-    //       value={user.city}
-    //       onChange={handleChange}
-    //     />
-    //     <br />
-    //     <br />
-
-    //     <button type="submit">Create my account</button>
-    //   </form>
-    //   {errorMessage && <p>{errorMessage}</p>}
-    // </div>
     <div>
 
     <section class="contact section">
@@ -111,7 +51,7 @@ const SignUpPage = () => {
               
               <div class="create-first-img">
                       <img                   
-                      src="/images/loginImage.png" alt="" width="540" />
+                      src="/images/loginImage.png" alt="" width="370" />
               </div>
             </div>
 
