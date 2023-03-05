@@ -88,7 +88,7 @@ const StrollEdit = () => {
                   <h2 className='primaryText'>Let's<span className='text-customSecondary'> edit!</span></h2>
                   <div className="update__title">
                     <div className="flex items-center">
-                      <p className='text-customPrimary'>{stroll.title.slice(0, 1).toUpperCase() + stroll.title.slice(1)}</p>
+                      <p className='text-customPrimary'>{stroll.title}</p>
                       <RiEdit2Line style={{ fontSize: '2rem' }} />
                     </div>
                   </div>
