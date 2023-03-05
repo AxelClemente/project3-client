@@ -180,13 +180,13 @@ const Header = () => {
                 <button>About Us</button>{" "}
               </Link>
               <Link to={"/login"}>
-                {" "}
-                <button>Login</button>{" "}
+                
+                Login
               </Link>
 
-              <Link to={"/signup"}>
-                {" "}
-                <button  className="bg-customPrimary hover:bg-customSecondary px-4 py-3 rounded-lg transition"  style={{ color: "white" }} onClick={logOutUser}>Singup</button>
+              <Link 
+                to={"/signup"}>               
+                <button  className="bg-customPrimary hover:bg-customSecondary px-4 py-3 rounded-lg transition"  style={{ color: "white" }} onClick={logOutUser}>Signup</button>
               </Link>
               <div className="flex items-center gap-6">
               </div>
